@@ -47,7 +47,8 @@
 .cert-a4 .sub{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; text-transform:uppercase; }
 .cert-a4 .num-bar{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; }
 .cert-a4 table{ width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10pt; }
-.cert-a4 table td, .cert-a4 table th{ border:1px solid #000; padding:4px 6px; vertical-align:middle; }
+/* AQUÍ SE AGREGA text-align:center PARA TODAS LAS CELDAS */
+.cert-a4 table td, .cert-a4 table th{ border:1px solid #000; padding:4px 6px; vertical-align:middle; text-align:center; }
 .cert-a4 table th{ background:#f2f2f2; font-weight:bold; text-align:center; text-transform:uppercase; font-size:9pt; line-height:1.2; }
 .cert-a4 table td.lbl{ font-weight:bold; width:38%; background:#f7f7f7; text-transform:uppercase; }
 .cert-a4 p{ text-align:center; margin:0 0 8px 0; font-size:10.5pt; line-height:1.4; }
@@ -653,10 +654,10 @@ function getCertHTML(c){
           <th>TOTAL PAGADO</th>
         </tr>
         <tr>
-          <td style="text-align:center">${c.bidones!=null?fmtNum(c.bidones):''}</td>
-          <td style="text-align:center">${fmtNum(c.kilos)}</td>
-          <td style="text-align:center">${c.is_donation?'—':fmtMoney(c.price_per_kilo)}</td>
-          <td style="text-align:center">${c.is_donation?'Donación':fmtMoney(c.total)}</td>
+          <td>${c.bidones!=null?fmtNum(c.bidones):''}</td>
+          <td>${fmtNum(c.kilos)}</td>
+          <td>${c.is_donation?'—':fmtMoney(c.price_per_kilo)}</td>
+          <td>${c.is_donation?'Donación':fmtMoney(c.total)}</td>
         </tr>
       </table>
 
@@ -668,10 +669,10 @@ function getCertHTML(c){
           <th>HORA</th>
         </tr>
         <tr>
-          <td style="text-align:center">${esc(drv.full_name||'')}</td>
-          <td style="text-align:center">${esc(c.vehicle||'')}</td>
-          <td style="text-align:center">${dateToEs(c.certificate_date)}</td>
-          <td style="text-align:center">${esc(c.certificate_time||'')}</td>
+          <td>${esc(drv.full_name||'')}</td>
+          <td>${esc(c.vehicle||'')}</td>
+          <td>${dateToEs(c.certificate_date)}</td>
+          <td>${esc(c.certificate_time||'')}</td>
         </tr>
       </table>
 
@@ -681,16 +682,16 @@ function getCertHTML(c){
 
       <table style="margin-top:20px">
         <tr>
-          <td style="text-align:center;vertical-align:bottom;height:100px">
+          <td style="vertical-align:bottom;height:100px">
             ${c.customer_signature?`<img src="${c.customer_signature}" style="max-height:60px;max-width:90%;">`:''}
           </td>
-          <td style="text-align:center;vertical-align:bottom;height:100px">
+          <td style="vertical-align:bottom;height:100px">
             ${c.driver_signature?`<img src="${c.driver_signature}" style="max-height:60px;max-width:90%;">`:''}
           </td>
         </tr>
         <tr>
-          <td style="text-align:center;font-weight:bold;background:#f2f2f2">RESPONSABLE DE LA ENTREGA<br><span style="font-weight:normal;font-size:9pt">${esc(cust.name||'')}</span></td>
-          <td style="text-align:center;font-weight:bold;background:#f2f2f2">RECOLECTOR OILSINFIN<br><span style="font-weight:normal;font-size:9pt">${esc(drv.full_name||'')}</span></td>
+          <td style="font-weight:bold;background:#f2f2f2">RESPONSABLE DE LA ENTREGA<br><span style="font-weight:normal;font-size:9pt">${esc(cust.name||'')}</span></td>
+          <td style="font-weight:bold;background:#f2f2f2">RECOLECTOR OILSINFIN<br><span style="font-weight:normal;font-size:9pt">${esc(drv.full_name||'')}</span></td>
         </tr>
       </table>
     </div>`;
