@@ -185,7 +185,7 @@ const todayISO=()=>new Date().toISOString().slice(0,10);
 const nowTime=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
 const dateToEs=iso=>{if(!iso)return '';const [y,m,d]=iso.split('-');return `${d}/${m}/${y}`};
 
-function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3500)}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),4000)}
 function showNotice(msg,type='error'){const el=$('pageNotice');el.textContent=msg;el.className='notice '+type;el.classList.remove('hidden')}
 function hideNotice(){$('pageNotice').classList.add('hidden')}
 
