@@ -47,7 +47,6 @@
 .cert-a4 .sub{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; text-transform:uppercase; }
 .cert-a4 .num-bar{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; }
 .cert-a4 table{ width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10pt; }
-/* AQUÍ SE AGREGA text-align:center PARA TODAS LAS CELDAS */
 .cert-a4 table td, .cert-a4 table th{ border:1px solid #000; padding:4px 6px; vertical-align:middle; text-align:center; }
 .cert-a4 table th{ background:#f2f2f2; font-weight:bold; text-align:center; text-transform:uppercase; font-size:9pt; line-height:1.2; }
 .cert-a4 table td.lbl{ font-weight:bold; width:38%; background:#f7f7f7; text-transform:uppercase; }
@@ -1163,10 +1162,10 @@ async function newCertificate(crToConvert = null){
       <div id="firmasContainer" class="${crToConvert ? 'hidden' : ''}">
         <div class="section-label">Firmas</div>
         <div class="field full">
-          <label style="margin-bottom:6px">Firma del responsable de la entrega (dibuja con el dedo) *</label>
+          <label style="margin-bottom:6px">Firma del responsable de la entrega (opcional)</label>
           <div class="sig-wrap" id="sigWrapCliente">
             <canvas class="sig-canvas" id="sigCanvasCliente"></canvas>
-            <div class="sig-ph" id="sigPhCliente">Aquí firma el dueño del restaurante con el dedo</div>
+            <div class="sig-ph" id="sigPhCliente">Aquí firma el dueño del restaurante con el dedo (opcional)</div>
           </div>
           <div class="sig-controls"><button class="btn btn-secondary btn-small" type="button" id="sigClearCliente">Limpiar firma</button></div>
         </div>
@@ -1292,7 +1291,7 @@ async function saveCertificate(nums, crToConvert = null, skipBranchCheck = false
     return;
   }
   
-  // TOMAR FIRMA DEL PAD O DE LA CONVERSIÓN ANTERIOR
+  // TOMAR FIRMA DEL PAD O DE LA CONVERSIÓN ANTERIOR (AHORA ES OPCIONAL)
   let clientSig = null;
   let driverSig = null;
 
@@ -1302,8 +1301,10 @@ async function saveCertificate(nums, crToConvert = null, skipBranchCheck = false
     driverSig = crToConvert.driver_signature || drvDb?.signature || null;
   } else {
     const pad = window.__certPadCliente;
-    if (!pad || pad.isEmpty()) return toast('Falta la firma del responsable de la entrega.');
-    clientSig = pad.dataURL();
+    // Si el pad tiene contenido, lo guardamos. Si no, se queda en null.
+    if (pad && !pad.isEmpty()) {
+      clientSig = pad.dataURL();
+    }
     const drvDb = drivers.find(d=>d.id===drvId);
     driverSig = drvDb?.signature || null;
   }
