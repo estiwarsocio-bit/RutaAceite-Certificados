@@ -137,7 +137,6 @@
   </section>
 </div>
 
-<!-- Vista previa con zoom interno (Panzoom) -->
 <div class="preview-overlay hidden" id="previewOverlay">
   <div class="preview-bar">
     <div class="preview-bar-title" id="previewTitle">Certificado</div>
@@ -186,7 +185,7 @@ const todayISO=()=>new Date().toISOString().slice(0,10);
 const nowTime=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
 const dateToEs=iso=>{if(!iso)return '';const [y,m,d]=iso.split('-');return `${d}/${m}/${y}`};
 
-function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2800)}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3500)}
 function showNotice(msg,type='error'){const el=$('pageNotice');el.textContent=msg;el.className='notice '+type;el.classList.remove('hidden')}
 function hideNotice(){$('pageNotice').classList.add('hidden')}
 
@@ -221,7 +220,6 @@ $('selX').addEventListener('click',closeSelector);
 $('selCancel').addEventListener('click',closeSelector);
 $('selOverlay').addEventListener('click',e=>{if(e.target===$('selOverlay'))closeSelector()});
 
-// Función con el nombre logo.png en minúscula
 function certLogoHTML(){
   return `<img src="logo.png" alt="Oilsinfín">`;
 }
@@ -566,7 +564,6 @@ function getCertHTML(c){
       <div class="title">CERTIFICADO DE DISPOSICIÓN FINAL Y APROVECHAMIENTO DE ACU.<br>ACEITE DE COCINA USADO</div>
       <div class="nit">NIT: 42988401</div>
       
-      <!-- TEXTO LEGAL MEJORADO Y CENTRADO -->
       <div class="sub" style="text-align:center; margin-bottom:15px; font-size:10pt; text-transform:none;">OILSINFÍN CERTIFICA QUE LA SIGUIENTE EMPRESA GENERADORA REALIZÓ LA ENTREGA Y DISPOSICIÓN FINAL DE ACEITE DE COCINA USADO (ACU), DANDO CUMPLIMIENTO A LA NORMATIVIDAD AMBIENTAL VIGENTE:</div>
       
       <table>
@@ -580,10 +577,8 @@ function getCertHTML(c){
         <tr><td class="lbl">BARRIO</td><td>${esc(cust.zone||'')}</td></tr>
       </table>
 
-      <!-- PARRAFO LEGAL MEJORADO Y CENTRADO -->
       <p style="text-align:center; font-size:10pt; margin-bottom:12px"><em><strong>Oilsinfín</strong>, en su calidad de gestor autorizado, certifica que la recolección se realizó bajo los lineamientos establecidos en el Acuerdo 634 de 2015 y la Resolución 0316 de 2018, garantizando la trazabilidad, recolección y transporte del Aceite de Cocina Usado (ACU) hacia empresas transformadoras para la generación de biocombustibles.</em></p>
 
-      <!-- TABLA 1: DATOS DE CANTIDAD Y PRECIO -->
       <table>
         <tr>
           <th>CANTIDAD BIDONES</th>
@@ -599,7 +594,6 @@ function getCertHTML(c){
         </tr>
       </table>
 
-      <!-- TABLA 2: DATOS DE RECOLECCIÓN Y FECHA -->
       <table>
         <tr>
           <th>NOMBRE RECOLECTOR</th>
@@ -637,7 +631,6 @@ function getCertHTML(c){
   }
 }
 
-/* ==== VISTA PREVIA CON ZOOM INTERNO (PANZOOM) ==== */
 function openPreview(c){
   const viewport=$('previewViewport');
   const inner=$('previewInner');
@@ -700,7 +693,6 @@ function closePreview(){
   window.__previewCurrentCert=null;
 }
 
-/* ==== GENERACIÓN DE PDF REUTILIZABLE ==== */
 async function createPDF(c) {
   const html = getCertHTML(c);
   const wrapper = document.createElement('div');
@@ -708,7 +700,7 @@ async function createPDF(c) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  await new Promise(r => setTimeout(r, 100)); // Esperar que carguen las imágenes locales
+  await new Promise(r => setTimeout(r, 100));
 
   const certEl = wrapper.querySelector('.cert-a4');
   if(!certEl) throw new Error('No se encontró el certificado');
@@ -725,7 +717,6 @@ async function createPDF(c) {
   return pdf;
 }
 
-/* ==== COMPARTIR Y DESCARGAR (PROTEGIDO CONTRA CRASH DE ACODE) ==== */
 async function shareCertificate(c) {
   if (IS_ACODE) {
     toast('⚠️ Acode no permite compartir archivos. Usa Chrome para esta función.');
@@ -733,9 +724,17 @@ async function shareCertificate(c) {
   }
 
   const isCR = c.certificate_type === 'recoleccion';
-  const msg = `Mira aquí está tu certificado de ${isCR ? 'recolección' : 'disposición final'} N° ${c.certificate_number}.`;
+  const msg = `Hola, adjunto encontrarás tu certificado de ${isCR ? 'recolección' : 'disposición final'} N° ${c.certificate_number}. ¡Gracias por confiar en Oilsinfín!`;
   
-  toast('Generando PDF para compartir...');
+  // Copiamos el mensaje al portapapeles para que WhatsApp no lo borre
+  try {
+    await navigator.clipboard.writeText(msg);
+    toast('Mensaje copiado. Pégalo en el chat de WhatsApp.');
+  } catch (err) {
+    console.log('No se pudo copiar al portapapeles', err);
+  }
+
+  toast('Generando PDF...');
   
   try {
     const pdf = await createPDF(c);
@@ -752,7 +751,7 @@ async function shareCertificate(c) {
       pdf.save(`${c.certificate_number}.pdf`);
       toast('PDF guardado. Abriendo WhatsApp...');
       setTimeout(() => {
-        window.location.href = `whatsapp://send?text=${encodeURIComponent(msg)}`;
+        window.location.href = `whatsapp://send?text=`;
       }, 2000);
     }
   } catch (err) {
@@ -791,7 +790,6 @@ $('previewClose').addEventListener('click',closePreview);
 $('previewReset').addEventListener('click',resetPreviewZoom);
 $('previewDownload').addEventListener('click',downloadPreviewPDF);
 
-/* ==== CLIENTES ==== */
 function renderCustomers(){
   $('pageTitle').textContent='Clientes';
   $('pageSubtitle').textContent='Restaurantes y negocios que entregan aceite usado.';
@@ -874,7 +872,6 @@ async function saveCustomer(existing){
   finally{setBusy(false)}
 }
 
-/* ==== DOMICILIARIOS ==== */
 function renderDrivers(){
   $('pageTitle').textContent='Domiciliarios';
   $('pageSubtitle').textContent='Recolectores con firma guardada.';
