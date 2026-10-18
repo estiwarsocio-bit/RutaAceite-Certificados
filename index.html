@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, user-scalable=yes">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#173b2c">
+<title>RutaAceite · Certificados</title>
+<style>
+/* === CERTIFICADOS === */
+:root{color-scheme:light;--g:#173b2c;--g2:#24553e;--lime:#c8e36b;--bg:#f4f6f0;--white:#fff;--red:#b74338;--text:#25342b;--muted:#718077;--line:#dce4d9;--yellow:#a56b13;--shadow:0 8px 24px rgba(23,59,44,.08)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;color-scheme:light}body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);font-size:15px}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}.hidden{display:none!important}.topbar{background:var(--g);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 3px 14px #173b2c20}.brand{font-weight:800;letter-spacing:.1px;font-size:18px}.top-actions{display:flex;align-items:center;gap:10px}.user-label{font-size:13px;color:#dce9df}.wrap{width:min(1000px,100%);margin:0 auto;padding:24px 18px 48px}.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}.page-head h1{margin:0;color:var(--g);font-size:clamp(24px,4vw,30px);letter-spacing:-.5px}.subtitle{margin:6px 0 0;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid transparent;border-radius:11px;padding:10px 14px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;font-family:inherit;font-size:15px;background:#fff;color:var(--g);border-color:var(--line);cursor:pointer;transition:transform .12s,background .12s}.btn:active{transform:translateY(1px)}.btn-primary{background:var(--g);color:#fff;border-color:transparent}.btn-primary:hover{background:var(--g2)}.btn-secondary{background:#fff;color:var(--g);border-color:var(--line)}.btn-danger{background:#fff0ef;color:var(--red);border-color:#f0cbc7}.btn-lime{background:var(--lime);color:var(--g);border-color:transparent}.btn-small{padding:7px 10px;min-height:34px;font-size:13px}.tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px;margin-bottom:18px;box-shadow:var(--shadow);overflow-x:auto}.tab{border:0;background:transparent;color:var(--g);font-weight:750;padding:10px 14px;border-radius:10px;font-family:inherit;font-size:14px;white-space:nowrap;cursor:pointer}.tab.active{background:var(--g);color:#fff}.filters{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:#fff;color:var(--g);padding:6px 12px;border-radius:8px;font-size:12px;font-weight:750;cursor:pointer}.filters button.active{background:var(--g);color:#fff}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:var(--shadow)}.stat-label{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.4px}.stat-value{font-size:30px;font-weight:900;color:var(--g);margin-top:4px;letter-spacing:-.7px}.stat-note{font-size:12px;color:var(--muted);margin-top:2px}.list{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}.list-head{padding:13px 16px;border-bottom:1px solid var(--line);font-weight:850;color:var(--g);font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}.list-row{padding:13px 16px;border-bottom:1px solid #edf0ea;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;transition:background .15s}.list-row:last-child{border-bottom:0}.list-row.selectable{cursor:pointer}.list-row.selectable:hover{background:#f9fbf7}.list-row.selected{background:#eef5e9}.row-left{min-width:0;flex:1;display:flex;align-items:center;gap:12px}.row-content{flex:1;min-width:0}.row-title{font-weight:800;color:var(--g);font-size:14px;overflow-wrap:anywhere}.row-meta{font-size:12px;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}.row-right{text-align:right;flex:0 0 auto;display:flex;flex-direction:column;gap:6px;align-items:flex-end}.row-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;margin-top:4px}.check-box{width:22px;height:22px;flex:0 0 auto;border:2px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff}.check-box.checked{background:var(--g);border-color:var(--g)}.check-box.checked::after{content:'';width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);margin-bottom:2px}.pill{display:inline-block;border-radius:999px;padding:3px 9px;background:#eef2eb;color:var(--g);font-size:11px;font-weight:800;letter-spacing:.3px}.pill-cr{background:#e8f5e9;color:#237443}.pill-df{background:#e8eef5;color:#2c5580}.pill-active{background:#e8f5e9;color:#237443}.pill-inactive{background:#f4eae9;color:var(--red)}.empty{background:#fff;border:1px dashed #cbd6c9;border-radius:15px;padding:30px 18px;text-align:center;color:var(--muted);box-shadow:var(--shadow)}.empty strong{display:block;color:var(--g);font-size:16px;margin-bottom:5px}.notice{padding:11px 13px;border-radius:10px;font-size:13px;margin:0 0 14px}.notice.error{background:#fff0ef;color:var(--red);border:1px solid #f0cbc7}.notice.success{background:#e8f5e9;color:var(--g);border:1px solid #cce3ce}.login-screen{min-height:100vh;display:grid;place-items:center;padding:20px}.login-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;width:min(420px,100%);box-shadow:var(--shadow)}.login-card h1{color:var(--g);font-size:24px;margin:0 0 7px}.login-card p{color:var(--muted);margin:0 0 20px}.login-brand{font-size:22px;font-weight:900;color:var(--g);margin-bottom:20px}.login-error{margin-top:12px;color:var(--red);font-size:13px;white-space:pre-wrap}.login-card .field{margin:13px 0}.login-card .btn{width:100%;margin-top:8px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:12px;color:var(--muted);font-weight:800}.field input,.field select,.field textarea{width:100%;min-width:0;background:#fff;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 12px;outline:none;font-family:inherit;font-size:15px}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px #c8e36b66}.field .fake-select{width:100%;min-width:0;background:#fff;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 12px;outline:none;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;min-height:44px;font-family:inherit;font-size:15px;cursor:pointer}.fake-select-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}.fake-select svg{width:16px;height:16px;flex:0 0 auto;color:var(--muted)}.fake-select-native{display:none!important}.field-help{font-size:12px;color:var(--muted)}.field-help.warn{color:var(--yellow);font-weight:700}.field.full{grid-column:1/-1}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.checkline{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--g);font-weight:750;margin-top:2px;cursor:pointer}.checkline input{width:auto;min-width:0}.total-line{background:#eef5e9;border:1px solid #cde2c9;border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:850;color:var(--g);font-size:15px}.section-label{grid-column:1/-1;font-size:12px;font-weight:850;color:var(--g);text-transform:uppercase;letter-spacing:.7px;padding-top:8px;border-top:1px solid #edf0ea;margin-top:4px}.section-label:first-child{border-top:0;padding-top:0;margin-top:0}.overlay{position:fixed;inset:0;background:rgba(14,29,21,.55);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}.dialog{width:min(680px,100%);max-height:min(92dvh,900px);display:flex;flex-direction:column;background:#fff;border-radius:18px;box-shadow:0 24px 80px #0003;overflow:hidden}.dialog.wide{width:min(1000px,100%)}.dialog-head{background:#fff;padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.dialog-head h2{font-size:20px;line-height:1.25;color:var(--g);margin:0}.dialog-subtitle{font-size:13px;color:var(--muted);margin-top:5px}.icon-btn{border:0;background:#f0f3ee;color:var(--g);border-radius:9px;width:36px;height:36px;font-size:23px;line-height:1;flex:0 0 auto;cursor:pointer}.dialog-body{padding:20px;overflow:auto}.dialog-foot{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;padding:14px 20px;border-top:1px solid var(--line);background:#fbfcfa}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:200;background:var(--g);color:#fff;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);max-width:calc(100% - 28px);transition:.2s;font-size:14px;font-weight:700}.toast.show{opacity:1;transform:translate(-50%,0)}
+#selOverlay{z-index:150}
+.sig-wrap{background:#fbfcfa;border:2px dashed #c9d3c4;border-radius:12px;position:relative;overflow:hidden}.sig-canvas{display:block;width:100%;height:180px;touch-action:none;background:transparent;cursor:crosshair}.sig-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;font-style:italic;pointer-events:none;text-align:center;padding:10px}.sig-controls{display:flex;gap:8px;margin-top:8px}.sig-preview{background:#fbfcfa;border:2px dashed #c9d3c4;border-radius:12px;min-height:140px;display:flex;align-items:center;justify-content:center;padding:8px}.sig-preview img{max-height:130px;max-width:100%;object-fit:contain}.sig-preview .empty{font-size:13px;color:var(--muted);font-style:italic;text-align:center;padding:20px;background:transparent;border:0;box-shadow:none}
+
+/* ==== ESTILOS DEL CERTIFICADO A4 ==== */
+.cert-a4{
+  background:#fff;
+  color:#000;
+  font-family:'Times New Roman', Times, serif;
+  width:210mm;
+  min-height:297mm;
+  padding:15mm 12mm 15mm 15mm;
+  margin:0 auto;
+  box-sizing:border-box;
+  line-height:1.35;
+  font-size:11pt;
+  position:relative;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+.cert-a4 .logo-top{ text-align:center; margin-bottom:12px; }
+.cert-a4 .logo-top img{ width:auto; height:45mm; max-width:100%; object-fit:contain; display:inline-block;}
+.cert-a4 .title{ text-align:center; font-weight:bold; font-size:12pt; line-height:1.3; margin:0 0 4px 0; text-transform:uppercase; }
+.cert-a4 .nit{ text-align:center; font-weight:bold; font-size:11pt; margin:0 0 10px 0; }
+.cert-a4 .sub{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; text-transform:uppercase; }
+.cert-a4 .num-bar{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; }
+.cert-a4 table{ width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10pt; }
+.cert-a4 table td, .cert-a4 table th{ border:1px solid #000; padding:4px 6px; vertical-align:middle; }
+.cert-a4 table th{ background:#f2f2f2; font-weight:bold; text-align:center; text-transform:uppercase; font-size:9pt; line-height:1.2; }
+.cert-a4 table td.lbl{ font-weight:bold; width:38%; background:#f7f7f7; text-transform:uppercase; }
+.cert-a4 p{ text-align:center; margin:0 0 8px 0; font-size:10.5pt; line-height:1.4; }
+.cert-a4 .firmas{ display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:30px; }
+.cert-a4 .firmas .box{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+.cert-a4 .firmas .img{ height:60px; width:100%; display:flex; align-items:flex-end; justify-content:center; margin-bottom:4px; }
+.cert-a4 .firmas .img img{ max-height:60px; max-width:90%; object-fit:contain; }
+.cert-a4 .firmas .line{ width:100%; border-top:1px solid #000; margin-top:2px; margin-bottom:4px; }
+.cert-a4 .firmas .lbl{ font-weight:bold; text-transform:uppercase; font-size:9.5pt; }
+.cert-a4 .firmas .sub{ font-size:9pt; margin-top:2px; }
+.cert-a4 .adv{ background:#fafafa; padding:10px; border:1px solid #ddd; margin-bottom:10px; }
+.cert-a4 .adv p{ margin:0 0 4px 0; font-size:9.5pt; }
+
+/* ==== VISTA PREVIA CON ZOOM (PANZOOM) ==== */
+.preview-overlay{position:fixed;inset:0;background:#1a1a1a;z-index:180;display:flex;flex-direction:column}
+.preview-bar{background:var(--g);color:#fff;padding:10px 12px;display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.preview-bar-title{font-size:14px;font-weight:800;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.preview-bar-actions{display:flex;gap:6px;flex-wrap:wrap}
+.preview-bar .btn{min-height:36px;padding:7px 11px;font-size:13px}
+.preview-viewport{flex:1;overflow:hidden;position:relative;touch-action:none;background:#2a2a2a;cursor:grab}
+.preview-viewport:active{cursor:grabbing}
+.preview-inner{position:absolute;top:8px;left:8px;transform-origin:0 0;will-change:transform}
+.preview-inner .cert-a4{margin:0}
+.preview-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#fff;padding:8px 14px;border-radius:20px;font-size:12.5px;pointer-events:none;transition:opacity .4s;z-index:2;white-space:nowrap;max-width:90%;text-align:center}
+.preview-hint.hide{opacity:0}
+
+@media(max-width:600px){.topbar{padding:12px 14px}.brand{font-size:16px}.user-label{display:none}.wrap{padding:18px 12px 35px}.page-head{display:block}.page-head .actions{margin-top:14px}.page-head .btn{flex:1}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{grid-template-columns:1fr}.dialog{max-height:94dvh}.dialog-head,.dialog-body{padding:16px}.dialog-foot{padding:12px 16px}.dialog-foot .btn{flex:1}.preview-bar-title{font-size:13px}.preview-bar .btn{font-size:12px;padding:6px 9px}}
+/* === FIN CERTIFICADOS === */
+</style>
+</head>
+<body>
+
+<header class="topbar hidden" id="topbar">
+  <div class="brand">🫒 RutaAceite · Certificados</div>
+  <div class="top-actions">
+    <span class="user-label" id="userLabel"></span>
+    <button class="btn btn-secondary btn-small" id="logoutBtn" type="button">Salir</button>
+  </div>
+</header>
+
+<section class="login-screen" id="authView">
+  <div class="login-card">
+    <div class="login-brand">🫒 RutaAceite</div>
+    <h1>Certificados</h1>
+    <p>Ingresa con tu cuenta de operaciones.</p>
+    <div id="configMsg" class="notice error hidden"></div>
+    <form id="loginForm">
+      <div class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="password">Contraseña</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn-primary" id="loginBtn" type="submit">Iniciar sesión</button>
+      <div id="loginError" class="login-error"></div>
+    </form>
+  </div>
+</section>
+
+<main class="wrap hidden" id="appView">
+  <div id="pageNotice" class="notice hidden"></div>
+  <section class="page-head">
+    <div>
+      <h1 id="pageTitle">Certificados</h1>
+      <p class="subtitle" id="pageSubtitle">Emite y comparte certificados en segundos.</p>
+    </div>
+    <div class="actions" id="pageActions"></div>
+  </section>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="certificates" type="button">Certificados</button>
+    <button class="tab" data-tab="customers" type="button">Clientes</button>
+    <button class="tab" data-tab="drivers" type="button">Domiciliarios</button>
+  </nav>
+
+  <div id="view"></div>
+</main>
+
+<div class="overlay hidden" id="modalOverlay" role="presentation">
+  <section class="dialog" id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <header class="dialog-head">
+      <div>
+        <h2 id="modalTitle">Ventana</h2>
+        <div class="dialog-subtitle" id="modalSubtitle"></div>
+      </div>
+      <button type="button" class="icon-btn" id="modalX" aria-label="Cerrar">×</button>
+    </header>
+    <div class="dialog-body" id="modalBody"></div>
+    <footer class="dialog-foot" id="modalFoot"></footer>
+  </section>
+</div>
+
+<div class="overlay hidden" id="selOverlay" role="presentation">
+  <section class="dialog" style="width:min(440px,100%)" role="dialog" aria-modal="true" aria-labelledby="selTitle">
+    <header class="dialog-head">
+      <div><h2 id="selTitle">Selecciona una opción</h2></div>
+      <button type="button" class="icon-btn" id="selX" aria-label="Cerrar">×</button>
+    </header>
+    <div class="dialog-body" id="selBody" style="padding:8px 10px 12px"></div>
+    <footer class="dialog-foot">
+      <button class="btn btn-secondary" id="selCancel" type="button">Cancelar</button>
+    </footer>
+  </section>
+</div>
+
+<!-- Vista previa con zoom interno (Panzoom) -->
+<div class="preview-overlay hidden" id="previewOverlay">
+  <div class="preview-bar">
+    <div class="preview-bar-title" id="previewTitle">Certificado</div>
+    <div class="preview-bar-actions">
+      <button class="btn btn-secondary btn-small" id="previewReset" type="button">🔄 Zoom</button>
+      <button class="btn btn-lime btn-small" id="previewDownload" type="button">⬇ PDF</button>
+      <button class="btn btn-secondary btn-small" id="previewClose" type="button">✕</button>
+    </div>
+  </div>
+  <div class="preview-viewport" id="previewViewport">
+    <div class="preview-inner" id="previewInner"></div>
+    <div class="preview-hint" id="previewHint">Pellizca para hacer zoom · Arrastra para mover</div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js" onerror="window.__RUTAACEITE_CONFIG_LOAD_ERROR=true"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script>
+/* === CERTIFICADOS === */
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const cfg=window.RUTAACEITE_CONFIG||{};
+const configured=!!(cfg.SUPABASE_URL&&cfg.SUPABASE_ANON_KEY&&!String(cfg.SUPABASE_URL).includes('PEGA_AQUI')&&!String(cfg.SUPABASE_ANON_KEY).includes('PEGA_AQUI'));
+
+const IS_ACODE=(location.hostname==='localhost'&&location.port==='8158')||location.protocol==='content:';
+
+let sb=null,user=null,profile=null;
+let certificates=[],customers=[],drivers=[];
+let currentTab='certificates';
+let busy=false;
+let currentFilter='all'; 
+let selectionMode=false;
+let selectedCerts=new Set();
+
+const OFFICE={name:'OILSINFIN',nit:'42988401',address:'Cll 36 # 43-02 S',city:'Itagüí',phone:'319 549 9041',email:'recoleccion.oilsinfin@gmail.com',rep:'Luz Gladys Zapata',insc:'POR CONFIRMAR'};
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtNum=n=>Number(n||0).toLocaleString('es-CO',{maximumFractionDigits:3});
+const fmtMoney=n=>'$'+Number(n||0).toLocaleString('es-CO',{maximumFractionDigits:0});
+const todayISO=()=>new Date().toISOString().slice(0,10);
+const nowTime=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+const dateToEs=iso=>{if(!iso)return '';const [y,m,d]=iso.split('-');return `${d}/${m}/${y}`};
+
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2800)}
+function showNotice(msg,type='error'){const el=$('pageNotice');el.textContent=msg;el.className='notice '+type;el.classList.remove('hidden')}
+function hideNotice(){$('pageNotice').classList.add('hidden')}
+
+function openModal(title,body,buttons=[],subtitle='',wide=false){
+  $('modalTitle').textContent=title;$('modalSubtitle').textContent=subtitle;$('modalBody').innerHTML=body;$('modalFoot').replaceChildren();
+  $('modalDialog').classList.toggle('wide',wide);
+  buttons.forEach(b=>{const el=document.createElement('button');el.type='button';el.className='btn '+(b.kind||'btn-secondary');el.textContent=b.label;el.addEventListener('click',()=>b.action&&b.action());$('modalFoot').appendChild(el)});
+  $('modalOverlay').classList.remove('hidden');
+  const first=$('modalBody').querySelector('input,select,textarea,button');if(first)setTimeout(()=>first.focus({preventScroll:true}),30);
+}
+function closeModal(){if($('modalOverlay').classList.contains('hidden'))return;$('modalOverlay').classList.add('hidden');$('modalBody').replaceChildren();$('modalFoot').replaceChildren()}
+$('modalX').addEventListener('click',closeModal);
+$('modalOverlay').addEventListener('click',e=>{if(e.target===$('modalOverlay'))closeModal()});
+
+function setBusy(v){busy=v;document.querySelectorAll('button').forEach(b=>{if(b.dataset.allowWhileBusy!=='true')b.disabled=v})}
+
+function fakeSelectButton(id,label){
+  return `<button type="button" class="fake-select" data-select="${id}"><span class="fake-select-label">${esc(label)}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>`;
+}
+
+function openSelector(title,options,callback){
+  const body=options.map((o,i)=>`<button type="button" class="btn btn-secondary" style="width:100%;justify-content:flex-start;text-align:left;margin-bottom:6px" data-i="${i}">${esc(o.label)}</button>`).join('')||'<div style="padding:20px;text-align:center;color:var(--muted)">Sin opciones disponibles</div>';
+  $('selTitle').textContent=title;
+  $('selBody').innerHTML=body;
+  $('selOverlay').classList.remove('hidden');
+  $('selBody').querySelectorAll('[data-i]').forEach(b=>{
+    b.addEventListener('click',()=>{const i=Number(b.dataset.i);closeSelector();callback(options[i].value,options[i])});
+  });
+}
+function closeSelector(){$('selOverlay').classList.add('hidden');$('selBody').replaceChildren()}
+$('selX').addEventListener('click',closeSelector);
+$('selCancel').addEventListener('click',closeSelector);
+$('selOverlay').addEventListener('click',e=>{if(e.target===$('selOverlay'))closeSelector()});
+
+// Función con el nombre logo.png en minúscula
+function certLogoHTML(){
+  return `<img src="logo.png" alt="Oilsinfín">`;
+}
+
+/* ==== AUTH ==== */
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!configured||!window.supabase)return;
+  const email=$('email').value.trim(),password=$('password').value;
+  $('loginBtn').disabled=true;$('loginBtn').textContent='Ingresando…';$('loginError').textContent='';
+  try{
+    const {error}=await sb.auth.signInWithPassword({email,password});
+    if(error)throw error;
+    await startApp();
+  }catch(err){
+    $('loginError').textContent='No se pudo iniciar sesión. '+(err.message||'Verifica el correo y la contraseña.');
+  }finally{
+    $('loginBtn').disabled=false;$('loginBtn').textContent='Iniciar sesión';
+  }
+});
+
+$('logoutBtn').addEventListener('click',async()=>{
+  await sb.auth.signOut();
+  user=null;profile=null;
+  $('topbar').classList.add('hidden');$('appView').classList.add('hidden');$('authView').classList.remove('hidden');
+});
+
+async function startApp(){
+  const {data,error}=await sb.auth.getUser();
+  if(error)throw error;
+  user=data.user;
+  if(!user)return;
+  const {data:p,error:pe}=await sb.from('profiles').select('id,email,full_name,role,active').eq('id',user.id).maybeSingle();
+  if(pe)throw pe;
+  profile=p;
+  if(!p||p.role!=='admin'||p.active===false){
+    $('authView').classList.remove('hidden');$('topbar').classList.add('hidden');$('appView').classList.add('hidden');
+    $('loginError').textContent='Sección solo para administradores.';
+    await sb.auth.signOut();user=null;profile=null;return;
+  }
+  $('authView').classList.add('hidden');$('topbar').classList.remove('hidden');$('appView').classList.remove('hidden');
+  $('userLabel').textContent=p.full_name||p.email||'Administrador';
+  $('loginError').textContent='';
+  await loadAll();
+}
+
+async function loadAll(){
+  hideNotice();
+  $('view').innerHTML='<div class="empty">Cargando…</div>';
+  try{
+    const [cr,cc,cd]=await Promise.all([
+      sb.from('certificates').select('*').order('created_at',{ascending:false}),
+      sb.from('cert_customers').select('*').order('name'),
+      sb.from('cert_drivers').select('*').order('full_name')
+    ]);
+    if(cr.error)throw cr.error;
+    if(cc.error)throw cc.error;
+    if(cd.error)throw cd.error;
+    certificates=cr.data||[];
+    customers=cc.data||[];
+    drivers=cd.data||[];
+    render();
+  }catch(e){
+    showNotice('No se pudo cargar: '+(e.message||'Error desconocido'));
+    $('view').innerHTML='<div class="empty"><strong>Error al cargar</strong>Revisa la conexión y los permisos.</div>';
+  }
+}
+
+function render(){
+  document.querySelectorAll('#tabs .tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===currentTab));
+  if(currentTab==='certificates')renderCertificates();
+  else if(currentTab==='customers')renderCustomers();
+  else if(currentTab==='drivers')renderDrivers();
+}
+
+document.querySelectorAll('#tabs .tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    currentTab=t.dataset.tab;
+    selectionMode=false;
+    selectedCerts.clear();
+    render();
+  });
+});
+
+function getFilteredCerts(){
+  const now=new Date();
+  let filtered=certificates;
+  
+  if(currentFilter==='today'){
+    const today=todayISO();
+    filtered=certificates.filter(c=>c.certificate_date===today || (c.created_at && c.created_at.slice(0,10)===today));
+  } else if(currentFilter==='week'){
+    const weekAgo=new Date(); weekAgo.setDate(now.getDate()-7);
+    filtered=certificates.filter(c=>new Date(c.created_at) >= weekAgo);
+  } else if(currentFilter==='month'){
+    filtered=certificates.filter(c=>{
+      const d=new Date(c.created_at);
+      return d.getMonth()===now.getMonth() && d.getFullYear()===now.getFullYear();
+    });
+  } else if(currentFilter==='year'){
+    filtered=certificates.filter(c=>{
+      const d=new Date(c.created_at);
+      return d.getFullYear()===now.getFullYear();
+    });
+  }
+  return filtered;
+}
+
+function setFilter(f){
+  currentFilter=f;
+  selectionMode=false;
+  selectedCerts.clear();
+  renderCertificates();
+}
+window.setFilter=setFilter;
+
+function toggleSelection(id){
+  if(selectedCerts.has(id)) selectedCerts.delete(id);
+  else selectedCerts.add(id);
+  renderCertificates();
+}
+
+function renderCertificates(){
+  $('pageTitle').textContent='Certificados';
+  $('pageSubtitle').textContent='Emite y comparte certificados en segundos.';
+  
+  if(selectionMode){
+    $('pageActions').innerHTML = `
+      <button class="btn btn-danger" id="bulkDeleteBtn" type="button" ${selectedCerts.size===0?'disabled':''}>🗑️ Borrar (${selectedCerts.size})</button>
+      <button class="btn btn-secondary" id="cancelSelectBtn" type="button">Cancelar</button>
+    `;
+    $('bulkDeleteBtn').addEventListener('click', bulkDelete);
+    $('cancelSelectBtn').addEventListener('click', ()=>{
+      selectionMode=false;
+      selectedCerts.clear();
+      renderCertificates();
+    });
+  } else {
+    $('pageActions').innerHTML = `
+      <button class="btn btn-secondary" id="selectModeBtn" type="button">Seleccionar</button>
+      <button class="btn btn-primary" id="newCertBtn" type="button">＋ Nuevo certificado</button>
+    `;
+    $('selectModeBtn').addEventListener('click', ()=>{
+      selectionMode=true;
+      renderCertificates();
+    });
+    $('newCertBtn').addEventListener('click',()=>newCertificate());
+  }
+
+  const filtered=getFilteredCerts();
+  
+  const list=filtered.slice(0,50).map(c=>{
+    const cust=customers.find(x=>x.id===c.customer_id);
+    const isCR=c.certificate_type==='recoleccion';
+    const pill=isCR?'<span class="pill pill-cr">Recolección</span>':'<span class="pill pill-df">Disposición</span>';
+    const meta=`${dateToEs(c.certificate_date)} · ${fmtNum(c.kilos)} kg`;
+    const selected=selectedCerts.has(c.id);
+    
+    if(selectionMode){
+      return `<div class="list-row selectable ${selected?'selected':''}" data-id="${esc(c.id)}">
+        <div class="row-left">
+          <div class="check-box ${selected?'checked':''}"></div>
+          <div class="row-content">
+            <div class="row-title">${esc(c.certificate_number)} · ${esc(cust?cust.name:'(sin cliente)')}</div>
+            <div class="row-meta">${meta}</div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    return `<div class="list-row">
+      <div class="row-left">
+        <div class="row-content">
+          <div class="row-title">${esc(c.certificate_number)} · ${esc(cust?cust.name:'(sin cliente)')}</div>
+          <div class="row-meta">${meta}</div>
+        </div>
+      </div>
+      <div class="row-right">
+        ${pill}
+        <div class="row-actions">
+          <button class="btn btn-secondary btn-small" data-ver="${esc(c.id)}" type="button">Ver</button>
+          <button class="btn btn-secondary btn-small" data-share="${esc(c.id)}" type="button">Compartir</button>
+          ${isCR?`<button class="btn btn-lime btn-small" data-convert="${esc(c.id)}" type="button">Convertir</button>`:''}
+          <button class="btn btn-danger btn-small" data-del="${esc(c.id)}" type="button">Borrar</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const f1=currentFilter==='today'?'active':'';
+  const f2=currentFilter==='week'?'active':'';
+  const f3=currentFilter==='month'?'active':'';
+  const f4=currentFilter==='year'?'active':'';
+  const f5=currentFilter==='all'?'active':'';
+
+  $('view').innerHTML=`
+    <div class="filters">
+      <button class="${f1}" onclick="window.setFilter('today')">Hoy</button>
+      <button class="${f2}" onclick="window.setFilter('week')">Últ. 7 días</button>
+      <button class="${f3}" onclick="window.setFilter('month')">Este mes</button>
+      <button class="${f4}" onclick="window.setFilter('year')">Este año</button>
+      <button class="${f5}" onclick="window.setFilter('all')">Todos</button>
+    </div>
+    <div class="list">
+      <div class="list-head"><span>Certificados (${filtered.length})</span></div>
+      ${list||'<div class="list-row"><div class="row-left"><div class="row-meta">No hay certificados en este periodo.</div></div></div>'}
+    </div>`;
+
+  if(selectionMode){
+    $('view').querySelectorAll('[data-id]').forEach(row=>{
+      row.addEventListener('click', ()=> toggleSelection(row.dataset.id));
+    });
+  } else {
+    $('view').querySelectorAll('[data-ver]').forEach(b=>{
+      b.addEventListener('click',()=>{const c=filtered.find(x=>x.id===b.dataset.ver);if(c)openPreview(c)});
+    });
+    $('view').querySelectorAll('[data-share]').forEach(b=>{
+      b.addEventListener('click',()=>{const c=filtered.find(x=>x.id===b.dataset.share);if(c)shareCertificate(c)});
+    });
+    $('view').querySelectorAll('[data-convert]').forEach(b=>{
+      b.addEventListener('click',()=>{const c=filtered.find(x=>x.id===b.dataset.convert);if(c)newCertificate(c)});
+    });
+    $('view').querySelectorAll('[data-del]').forEach(b=>{
+      b.addEventListener('click',()=>{const c=filtered.find(x=>x.id===b.dataset.del);if(c)deleteCert(c)});
+    });
+  }
+}
+
+async function deleteCert(c){
+  openModal('Eliminar certificado',
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 12px">¿Seguro que quieres eliminar el certificado <strong>${esc(c.certificate_number)}</strong>? Esta acción no se puede deshacer.</p>`,
+    [
+      {label:'Cancelar',kind:'btn-secondary',action:closeModal},
+      {label:'Sí, eliminar',kind:'btn-danger',action:async()=>{
+        try{
+          setBusy(true);
+          const {error}=await sb.from('certificates').delete().eq('id',c.id);
+          if(error)throw error;
+          closeModal();toast('Certificado eliminado.');await loadAll();
+        }catch(e){toast('No se pudo eliminar: '+e.message)}
+        finally{setBusy(false)}
+      }}
+    ],
+    c.certificate_number
+  );
+}
+
+async function bulkDelete(){
+  const count=selectedCerts.size;
+  if(count===0)return;
+  openModal('Eliminar certificados',
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 12px">¿Seguro que quieres eliminar <strong>${count}</strong> certificado(s)? Esta acción no se puede deshacer.</p>`,
+    [
+      {label:'Cancelar',kind:'btn-secondary',action:closeModal},
+      {label:'Sí, eliminar todo',kind:'btn-danger',action:async()=>{
+        try{
+          setBusy(true);
+          const ids=Array.from(selectedCerts);
+          const {error}=await sb.from('certificates').delete().in('id', ids);
+          if(error)throw error;
+          closeModal();
+          toast(`${count} certificado(s) eliminado(s).`);
+          selectionMode=false;
+          selectedCerts.clear();
+          await loadAll();
+        }catch(e){toast('No se pudo eliminar: '+e.message)}
+        finally{setBusy(false)}
+      }}
+    ],
+    'Confirmar borrado masivo'
+  );
+}
+
+/* ==== DISEÑO EXACTO DEL CERTIFICADO (A4) ==== */
+function getCertHTML(c){
+  const cust=customers.find(x=>x.id===c.customer_id)||{};
+  const drv=drivers.find(x=>x.id===c.driver_id)||{};
+  const isCR=c.certificate_type==='recoleccion';
+  
+  const logo=`<div class="logo-top">${certLogoHTML()}</div>`;
+
+  if(isCR){
+    return `<div class="cert-a4" id="certPreview">
+      ${logo}
+      <div class="title">RECOLECCIÓN DE ACEITE DE COCINA USADO</div>
+      <div class="nit">NIT: 42988401</div>
+      <div class="sub">INSCRITOS ANTE LA AUTORIDAD AMBIENTAL</div>
+      <div class="num-bar">N° ${esc(c.certificate_number)}</div>
+      
+      <table>
+        <tr><td colspan="2" style="background:#173b2c;color:#fff;text-align:center;font-weight:bold;font-size:11pt">GENERADOR</td></tr>
+        <tr><td class="lbl">Razón Social:</td><td>${esc(cust.name||'')}</td></tr>
+        <tr><td class="lbl">NIT:</td><td>${esc(cust.nit||'')}</td></tr>
+        <tr><td class="lbl">Actividad:</td><td>${esc(cust.activity||'')}</td></tr>
+        <tr><td class="lbl">Dirección:</td><td>${esc(cust.address||'')}</td></tr>
+        <tr><td class="lbl">Sucursal:</td><td>${esc(c.branch||'')}</td></tr>
+        <tr><td class="lbl">Municipio:</td><td>${esc(cust.city||'')}</td></tr>
+        <tr><td class="lbl">Barrio:</td><td>${esc(cust.zone||'')}</td></tr>
+        <tr><td class="lbl">Teléfonos:</td><td>${esc(cust.phone||'')}</td></tr>
+        <tr><td class="lbl">Clase de Residuos:</td><td>ACU</td></tr>
+        <tr><td class="lbl">Nombre de quien entrega:</td><td>${esc(c.notes||'')}</td></tr>
+        <tr><td class="lbl">Cantidad / Peso (kgr.):</td><td>${fmtNum(c.kilos)}</td></tr>
+        <tr><td class="lbl">Precio por kilo:</td><td>${c.is_donation?'—':fmtMoney(c.price_per_kilo)}</td></tr>
+        <tr><td class="lbl">Total:</td><td>${c.is_donation?'Donación':fmtMoney(c.total)}</td></tr>
+      </table>
+      
+      <table>
+        <tr><td colspan="2" style="background:#173b2c;color:#fff;text-align:center;font-weight:bold;font-size:11pt">RECOLECTOR</td></tr>
+        <tr><td class="lbl">Razón Social:</td><td>OILSINFIN</td></tr>
+        <tr><td class="lbl">NIT:</td><td>42988401</td></tr>
+        <tr><td class="lbl">Vehículo / Placa:</td><td>${esc(c.vehicle||'')}</td></tr>
+        <tr><td class="lbl">Domiciliario:</td><td>${esc(drv.full_name||'')}</td></tr>
+      </table>
+
+      <div class="adv">
+        <p><strong>Advertencias:</strong></p>
+        <p>✱ Residuos NO peligrosos, destinado exclusivamente para reciclaje (Biodiesel, Jabón).</p>
+        <p>✱ Recolección y transporte de aceite de cocina usado.</p>
+        <p>✱ Los kg recolectados por Oilsinfín serán transportados para empresas que transforman para generar biodiesel.</p>
+        <p>✱ En caso de derrame, contener con material absorbente no verter en el alcantarillado.</p>
+        <p style="text-align:center;margin-top:10px;font-weight:bold">Implementación bajo la resolución Nacional 316 de marzo de 2018</p>
+      </div>
+
+      <div class="firmas">
+        <div class="box">
+          <div class="img">${c.customer_signature?`<img src="${c.customer_signature}">`:''}</div>
+          <div class="line"></div>
+          <div class="lbl">${esc(c.notes||'Firma de quien entrega')}</div>
+          <div class="sub">Firma de quien entrega</div>
+        </div>
+        <div class="box">
+          <div class="img">${c.driver_signature?`<img src="${c.driver_signature}">`:''}</div>
+          <div class="line"></div>
+          <div class="lbl">${esc(drv.full_name||'Firma del recolector')}</div>
+          <div class="sub">Firma del recolector</div>
+        </div>
+      </div>
+    </div>`;
+  } else {
+    return `<div class="cert-a4" id="certPreview">
+      ${logo}
+      <div class="title">CERTIFICADO DE DISPOSICIÓN FINAL Y APROVECHAMIENTO DE ACU.<br>ACEITE DE COCINA USADO</div>
+      <div class="nit">NIT: 42988401</div>
+      
+      <!-- TEXTO LEGAL MEJORADO Y CENTRADO -->
+      <div class="sub" style="text-align:center; margin-bottom:15px; font-size:10pt; text-transform:none;">OILSINFÍN CERTIFICA QUE LA SIGUIENTE EMPRESA GENERADORA REALIZÓ LA ENTREGA Y DISPOSICIÓN FINAL DE ACEITE DE COCINA USADO (ACU), DANDO CUMPLIMIENTO A LA NORMATIVIDAD AMBIENTAL VIGENTE:</div>
+      
+      <table>
+        <tr><td class="lbl">NOMBRE / RAZÓN SOCIAL</td><td>${esc(cust.name||'')}</td></tr>
+        <tr><td class="lbl">CC / NIT</td><td>${esc(cust.nit||'')}</td></tr>
+        <tr><td class="lbl">DIRECCIÓN</td><td>${esc(cust.address||'')}</td></tr>
+        <tr><td class="lbl">SUCURSAL</td><td>${esc(c.branch||'')}</td></tr>
+        <tr><td class="lbl">CORREO</td><td>${esc(cust.email||'')}</td></tr>
+        <tr><td class="lbl">TELÉFONO</td><td>${esc(cust.phone||'')}</td></tr>
+        <tr><td class="lbl">CIUDAD</td><td>${esc(cust.city||'')}</td></tr>
+        <tr><td class="lbl">BARRIO</td><td>${esc(cust.zone||'')}</td></tr>
+      </table>
+
+      <!-- PARRAFO LEGAL MEJORADO Y CENTRADO -->
+      <p style="text-align:center; font-size:10pt; margin-bottom:12px"><em><strong>Oilsinfín</strong>, en su calidad de gestor autorizado, certifica que la recolección se realizó bajo los lineamientos establecidos en el Acuerdo 634 de 2015 y la Resolución 0316 de 2018, garantizando la trazabilidad, recolección y transporte del Aceite de Cocina Usado (ACU) hacia empresas transformadoras para la generación de biocombustibles.</em></p>
+
+      <!-- TABLA 1: DATOS DE CANTIDAD Y PRECIO -->
+      <table>
+        <tr>
+          <th>CANTIDAD BIDONES</th>
+          <th>KILOS DE ACEITE</th>
+          <th>PRECIO POR KILO</th>
+          <th>TOTAL PAGADO</th>
+        </tr>
+        <tr>
+          <td style="text-align:center">${c.bidones!=null?fmtNum(c.bidones):''}</td>
+          <td style="text-align:center">${fmtNum(c.kilos)}</td>
+          <td style="text-align:center">${c.is_donation?'—':fmtMoney(c.price_per_kilo)}</td>
+          <td style="text-align:center">${c.is_donation?'Donación':fmtMoney(c.total)}</td>
+        </tr>
+      </table>
+
+      <!-- TABLA 2: DATOS DE RECOLECCIÓN Y FECHA -->
+      <table>
+        <tr>
+          <th>NOMBRE RECOLECTOR</th>
+          <th>PLACAS DE VEHÍCULO</th>
+          <th>FECHA DE EMISIÓN</th>
+          <th>HORA</th>
+        </tr>
+        <tr>
+          <td style="text-align:center">${esc(drv.full_name||'')}</td>
+          <td style="text-align:center">${esc(c.vehicle||'')}</td>
+          <td style="text-align:center">${dateToEs(c.certificate_date)}</td>
+          <td style="text-align:center">${esc(c.certificate_time||'')}</td>
+        </tr>
+      </table>
+
+      <p style="text-align:center; font-size:10pt; margin-bottom:12px"><em>La cantidad de aceite de Cocina Usado (ACU) que fue recolectada, <strong>Oilsinfín</strong> se encargará de transportarla para empresas que hacen un aprovechamiento para producir Biocombustible (Biodiesel).</em></p>
+      
+      <p style="text-align:center; font-size:10pt; margin-bottom:12px"><em>Asimismo, <strong>Oilsinfín</strong> cuenta con un Registro Otorgado por su Funcionamiento bajo el Nit 42988401.</em></p>
+
+      <table style="margin-top:20px">
+        <tr>
+          <td style="text-align:center;vertical-align:bottom;height:100px">
+            ${c.customer_signature?`<img src="${c.customer_signature}" style="max-height:60px;max-width:90%;">`:''}
+          </td>
+          <td style="text-align:center;vertical-align:bottom;height:100px">
+            ${c.driver_signature?`<img src="${c.driver_signature}" style="max-height:60px;max-width:90%;">`:''}
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:bold;background:#f2f2f2">RESPONSABLE DE LA ENTREGA<br><span style="font-weight:normal;font-size:9pt">${esc(cust.name||'')}</span></td>
+          <td style="text-align:center;font-weight:bold;background:#f2f2f2">RECOLECTOR OILSINFIN<br><span style="font-weight:normal;font-size:9pt">${esc(drv.full_name||'')}</span></td>
+        </tr>
+      </table>
+    </div>`;
+  }
+}
+
+/* ==== VISTA PREVIA CON ZOOM INTERNO (PANZOOM) ==== */
+function openPreview(c){
+  const viewport=$('previewViewport');
+  const inner=$('previewInner');
+
+  if(window.__previewPanzoom){
+    try{window.__previewPanzoom.destroy()}catch(e){}
+    window.__previewPanzoom=null;
+  }
+
+  inner.innerHTML=getCertHTML(c);
+  inner.style.transform='';
+  $('previewTitle').textContent=c.certificate_number||'Certificado';
+  $('previewOverlay').classList.remove('hidden');
+  const hint=$('previewHint');
+  hint.classList.remove('hide');
+
+  window.__previewCurrentCert=c;
+
+  setTimeout(()=>{
+    const certEl=inner.querySelector('.cert-a4');
+    if(!certEl)return;
+
+    const vw=viewport.clientWidth;
+    const cw=certEl.offsetWidth;
+    const fitScale=Math.min((vw-16)/cw,1);
+    window.__previewFitScale=fitScale;
+
+    if(typeof Panzoom==='undefined'){
+      inner.style.transform=`scale(${fitScale})`;
+      return;
+    }
+
+    const pz=Panzoom(inner,{
+      maxScale:5,
+      minScale:0.25,
+      startScale:fitScale,
+      cursor:'grab'
+    });
+    window.__previewPanzoom=pz;
+    viewport.addEventListener('wheel',pz.zoomWithWheel,{passive:false});
+    setTimeout(()=>hint.classList.add('hide'),3200);
+  },60);
+}
+
+function resetPreviewZoom(){
+  const pz=window.__previewPanzoom;
+  const fitScale=window.__previewFitScale;
+  if(!pz||!fitScale)return;
+  pz.zoom(fitScale,{animate:true});
+  pz.pan(0,0,{animate:true});
+}
+
+function closePreview(){
+  if(window.__previewPanzoom){
+    try{window.__previewPanzoom.destroy()}catch(e){}
+    window.__previewPanzoom=null;
+  }
+  $('previewOverlay').classList.add('hidden');
+  $('previewInner').innerHTML='';
+  window.__previewCurrentCert=null;
+}
+
+/* ==== GENERACIÓN DE PDF REUTILIZABLE ==== */
+async function createPDF(c) {
+  const html = getCertHTML(c);
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = 'position:fixed;left:-10000px;top:0;width:210mm;background:#fff;';
+  wrapper.innerHTML = html;
+  document.body.appendChild(wrapper);
+
+  await new Promise(r => setTimeout(r, 100)); // Esperar que carguen las imágenes locales
+
+  const certEl = wrapper.querySelector('.cert-a4');
+  if(!certEl) throw new Error('No se encontró el certificado');
+
+  const canvas = await html2canvas(certEl, {scale: 2, backgroundColor: '#ffffff', useCORS: true, allowTaint: true, logging: false});
+  const imgData = canvas.toDataURL('image/png');
+  const {jsPDF} = window.jspdf;
+  const pdf = new jsPDF({orientation: 'portrait', unit: 'mm', format: 'a4'});
+  const pdfW = pdf.internal.pageSize.getWidth();
+  const pdfH = pdf.internal.pageSize.getHeight();
+  pdf.addImage(imgData, 'PNG', 0, 0, pdfW, pdfH);
+
+  document.body.removeChild(wrapper);
+  return pdf;
+}
+
+/* ==== COMPARTIR Y DESCARGAR (PROTEGIDO CONTRA CRASH DE ACODE) ==== */
+async function shareCertificate(c) {
+  if (IS_ACODE) {
+    toast('⚠️ Acode no permite compartir archivos. Usa Chrome para esta función.');
+    return;
+  }
+
+  const isCR = c.certificate_type === 'recoleccion';
+  const msg = `Mira aquí está tu certificado de ${isCR ? 'recolección' : 'disposición final'} N° ${c.certificate_number}.`;
+  
+  toast('Generando PDF para compartir...');
+  
+  try {
+    const pdf = await createPDF(c);
+    const blob = pdf.output('blob');
+    const file = new File([blob], `${c.certificate_number}.pdf`, { type: 'application/pdf' });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: 'Certificado RutaAceite',
+        text: msg
+      });
+    } else {
+      pdf.save(`${c.certificate_number}.pdf`);
+      toast('PDF guardado. Abriendo WhatsApp...');
+      setTimeout(() => {
+        window.location.href = `whatsapp://send?text=${encodeURIComponent(msg)}`;
+      }, 2000);
+    }
+  } catch (err) {
+    if (err.name !== 'AbortError') {
+      toast('Error al compartir: ' + (err.message || 'Desconocido'));
+    }
+  }
+}
+
+async function downloadPreviewPDF(){
+  if (IS_ACODE) {
+    toast('⚠️ Acode no permite descargar. Sube la app a GitHub y úsala en Chrome.');
+    return;
+  }
+
+  const c=window.__previewCurrentCert;
+  if(!c)return;
+  const btn=$('previewDownload');
+  const original=btn.textContent;
+  btn.disabled=true;
+  btn.textContent='...';
+
+  try{
+    const pdf = await createPDF(c);
+    pdf.save((c.certificate_number||'certificado')+'.pdf');
+    toast('PDF descargado.');
+  }catch(e){
+    toast('Error al generar PDF: '+(e.message||'desconocido'));
+  }finally{
+    btn.disabled=false;
+    btn.textContent=original;
+  }
+}
+
+$('previewClose').addEventListener('click',closePreview);
+$('previewReset').addEventListener('click',resetPreviewZoom);
+$('previewDownload').addEventListener('click',downloadPreviewPDF);
+
+/* ==== CLIENTES ==== */
+function renderCustomers(){
+  $('pageTitle').textContent='Clientes';
+  $('pageSubtitle').textContent='Restaurantes y negocios que entregan aceite usado.';
+  $('pageActions').innerHTML='<button class="btn btn-primary" id="newCustBtn" type="button">＋ Nuevo cliente</button>';
+  $('newCustBtn').addEventListener('click',()=>customerForm());
+
+  const list=customers.map(c=>`
+    <div class="list-row">
+      <div class="row-left">
+        <div class="row-content">
+          <div class="row-title">${esc(c.name)}</div>
+          <div class="row-meta">NIT ${esc(c.nit||'—')} · ${esc(c.address||'—')}${c.city?' · '+esc(c.city):''}</div>
+        </div>
+      </div>
+      <div class="row-right">
+        ${c.active?'<span class="pill pill-active">Activo</span>':'<span class="pill pill-inactive">Inactivo</span>'}
+        <button class="btn btn-secondary btn-small" data-edit="${esc(c.id)}" type="button">Editar</button>
+      </div>
+    </div>`).join('');
+
+  $('view').innerHTML=`<div class="list"><div class="list-head"><span>Clientes (${customers.length})</span></div>${list||'<div class="list-row"><div class="row-left"><div class="row-meta">Aún no hay clientes.</div></div></div>'}</div>`;
+
+  $('view').querySelectorAll('[data-edit]').forEach(b=>{
+    b.addEventListener('click',()=>{const c=customers.find(x=>x.id===b.dataset.edit);if(c)customerForm(c)});
+  });
+}
+
+function customerForm(c){
+  const editing=!!c;
+  const body=`
+    <form id="customerForm" class="form-grid">
+      <div class="field full"><label>Nombre o razón social *</label><input name="name" required maxlength="200" value="${esc(c?.name||'')}"></div>
+      <div class="field"><label>NIT / CC</label><input name="nit" maxlength="40" value="${esc(c?.nit||'')}"></div>
+      <div class="field"><label>Actividad</label><input name="activity" maxlength="80" value="${esc(c?.activity||'')}" placeholder="Ej. Restaurante"></div>
+      <div class="field full"><label>Dirección</label><input name="address" maxlength="200" value="${esc(c?.address||'')}"></div>
+      <div class="field"><label>Municipio</label><input name="city" maxlength="80" value="${esc(c?.city||'')}"></div>
+      <div class="field"><label>Barrio</label><input name="zone" maxlength="80" value="${esc(c?.zone||'')}"></div>
+      <div class="field"><label>Teléfono</label><input name="phone" maxlength="40" value="${esc(c?.phone||'')}"></div>
+      <div class="field"><label>Correo</label><input name="email" type="email" maxlength="120" value="${esc(c?.email||'')}"></div>
+      ${editing?`<label class="checkline field full"><input type="checkbox" name="active" ${c.active?'checked':''}> Activo</label>`:''}
+    </form>`;
+  openModal(editing?'Editar cliente':'Nuevo cliente',body,[
+    {label:'Cancelar',kind:'btn-secondary',action:closeModal},
+    {label:editing?'Guardar cambios':'Crear cliente',kind:'btn-primary',action:()=>saveCustomer(c)}
+  ],editing?'Actualiza los datos.':'Registra un nuevo restaurante o negocio.');
+  $('customerForm').addEventListener('submit',e=>{e.preventDefault();saveCustomer(c)});
+}
+
+async function saveCustomer(existing){
+  if(busy)return;
+  const f=$('customerForm');
+  if(!f.reportValidity())return;
+  const fd=new FormData(f);
+  const payload={
+    name:String(fd.get('name')||'').trim(),
+    nit:String(fd.get('nit')||'').trim()||null,
+    activity:String(fd.get('activity')||'').trim()||null,
+    address:String(fd.get('address')||'').trim()||null,
+    city:String(fd.get('city')||'').trim()||null,
+    zone:String(fd.get('zone')||'').trim()||null,
+    phone:String(fd.get('phone')||'').trim()||null,
+    email:String(fd.get('email')||'').trim()||null
+  };
+  if(!payload.name)return toast('Escribe el nombre del cliente.');
+  try{
+    setBusy(true);
+    let r;
+    if(existing){
+      payload.active=fd.get('active')!=null;
+      payload.updated_at=new Date().toISOString();
+      r=await sb.from('cert_customers').update(payload).eq('id',existing.id).select().single();
+    }else{
+      payload.active=true;
+      payload.created_by=user.id;
+      r=await sb.from('cert_customers').insert(payload).select().single();
+    }
+    if(r.error)throw r.error;
+    closeModal();toast(existing?'Cliente actualizado.':'Cliente creado.');await loadAll();
+  }catch(e){toast('No se pudo guardar: '+(e.message||'Error desconocido'))}
+  finally{setBusy(false)}
+}
+
+/* ==== DOMICILIARIOS ==== */
+function renderDrivers(){
+  $('pageTitle').textContent='Domiciliarios';
+  $('pageSubtitle').textContent='Recolectores con firma guardada.';
+  $('pageActions').innerHTML='<button class="btn btn-primary" id="newDrvBtn" type="button">＋ Nuevo domiciliario</button>';
+  $('newDrvBtn').addEventListener('click',()=>driverForm());
+
+  const list=drivers.map(d=>`
+    <div class="list-row">
+      <div class="row-left">
+        <div class="row-content">
+          <div class="row-title">${esc(d.full_name)}</div>
+          <div class="row-meta">${d.signature?'Firma registrada':'Sin firma'}</div>
+        </div>
+      </div>
+      <div class="row-right">
+        ${d.active?'<span class="pill pill-active">Activo</span>':'<span class="pill pill-inactive">Inactivo</span>'}
+        <button class="btn btn-secondary btn-small" data-edit="${esc(d.id)}" type="button">Editar</button>
+      </div>
+    </div>`).join('');
+
+  $('view').innerHTML=`<div class="list"><div class="list-head"><span>Domiciliarios (${drivers.length})</span></div>${list||'<div class="list-row"><div class="row-left"><div class="row-meta">Aún no hay domiciliarios.</div></div></div>'}</div>`;
+
+  $('view').querySelectorAll('[data-edit]').forEach(b=>{
+    b.addEventListener('click',()=>{const d=drivers.find(x=>x.id===b.dataset.edit);if(d)driverForm(d)});
+  });
+}
+
+function createSignaturePad(canvas,placeholder,existingDataUrl){
+  const ctx=canvas.getContext('2d');
+  let drawing=false,hasContent=false;
+  function resize(){
+    const r=canvas.getBoundingClientRect();
+    const dpr=window.devicePixelRatio||1;
+    canvas.width=r.width*dpr;canvas.height=r.height*dpr;
+    ctx.setTransform(1,0,0,1,0,0);ctx.scale(dpr,dpr);
+    ctx.strokeStyle='#000';ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';
+  }
+  resize();setTimeout(resize,60);
+  if(existingDataUrl){
+    const img=new Image();
+    img.onload=()=>{const w=canvas.width,h=canvas.height;const iw=img.width,ih=img.height;const s=Math.min(w/iw,h/ih)*0.9;ctx.drawImage(img,(w-iw*s)/2,(h-ih*s)/2,iw*s,ih*s);hasContent=true;if(placeholder)placeholder.classList.add('hidden')};
+    img.src=existingDataUrl;
+  }
+  function pos(e){const r=canvas.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return {x:t.clientX-r.left,y:t.clientY-r.top}}
+  function down(e){e.preventDefault();drawing=true;hasContent=true;if(placeholder)placeholder.classList.add('hidden');const p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y)}
+  function move(e){if(!drawing)return;e.preventDefault();const p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke()}
+  function up(e){if(!drawing)return;if(e)e.preventDefault();drawing=false}
+  canvas.addEventListener('touchstart',down,{passive:false});
+  canvas.addEventListener('touchmove',move,{passive:false});
+  canvas.addEventListener('touchend',up);
+  canvas.addEventListener('mousedown',down);
+  canvas.addEventListener('mousemove',move);
+  canvas.addEventListener('mouseup',up);
+  canvas.addEventListener('mouseleave',up);
+  return {
+    clear(){ctx.clearRect(0,0,canvas.width,canvas.height);hasContent=false;if(placeholder)placeholder.classList.remove('hidden')},
+    isEmpty(){return !hasContent},
+    dataURL(){return hasContent?canvas.toDataURL('image/png'):null}
+  };
+}
+
+function driverForm(d){
+  const editing=!!d;
+  const body=`
+    <form id="driverForm" class="form-grid">
+      <div class="field full"><label>Nombre completo *</label><input name="full_name" required maxlength="120" value="${esc(d?.full_name||'')}"></div>
+      <div class="section-label">Firma</div>
+      <div class="sig-wrap" id="sigWrapDriver">
+        <canvas class="sig-canvas" id="sigCanvasDriver"></canvas>
+        <div class="sig-ph" id="sigPhDriver">Dibuja aquí la firma con el dedo</div>
+      </div>
+      <div class="sig-controls field full"><button class="btn btn-secondary btn-small" type="button" id="sigClearDriver">Limpiar firma</button></div>
+      ${editing?`<label class="checkline field full"><input type="checkbox" name="active" ${d.active?'checked':''}> Activo</label>`:''}
+    </form>`;
+  openModal(editing?'Editar domiciliario':'Nuevo domiciliario',body,[
+    {label:'Cancelar',kind:'btn-secondary',action:closeModal},
+    {label:editing?'Guardar cambios':'Crear domiciliario',kind:'btn-primary',action:()=>saveDriver(d)}
+  ],editing?'Actualiza los datos.':'Registra un domiciliario y su firma.');
+  setTimeout(()=>{
+    const pad=createSignaturePad($('sigCanvasDriver'),$('sigPhDriver'),d?.signature||null);
+    window.__certPadDriver=pad;
+    $('sigClearDriver').addEventListener('click',()=>pad.clear());
+  },80);
+  $('driverForm').addEventListener('submit',e=>{e.preventDefault();saveDriver(d)});
+}
+
+async function saveDriver(existing){
+  if(busy)return;
+  const f=$('driverForm');
+  if(!f.reportValidity())return;
+  const fd=new FormData(f);
+  const pad=window.__certPadDriver;
+  const sig=pad&&!pad.isEmpty()?pad.dataURL():(existing?.signature||null);
+  const payload={full_name:String(fd.get('full_name')||'').trim(),signature:sig};
+  if(!payload.full_name)return toast('Escribe el nombre del domiciliario.');
+  try{
+    setBusy(true);
+    let r;
+    if(existing){
+      payload.active=fd.get('active')!=null;
+      payload.updated_at=new Date().toISOString();
+      r=await sb.from('cert_drivers').update(payload).eq('id',existing.id).select().single();
+    }else{
+      payload.active=true;
+      payload.created_by=user.id;
+      r=await sb.from('cert_drivers').insert(payload).select().single();
+    }
+    if(r.error)throw r.error;
+    closeModal();toast(existing?'Domiciliario actualizado.':'Domiciliario creado.');await loadAll();
+  }catch(e){toast('No se pudo guardar: '+(e.message||'Error desconocido'))}
+  finally{setBusy(false)}
+}
+
+async function nextCertNumber(type){
+  const year=new Date().getFullYear();
+  const prefix=type==='recoleccion'?'CR':'DF';
+  const {data,error}=await sb.from('certificates').select('sequence').eq('certificate_type',type).eq('year',year).order('sequence',{ascending:false}).limit(1);
+  if(error)throw error;
+  const seq=(data&&data[0]?data[0].sequence:0)+1;
+  return {prefix,year,sequence:seq,number:`${prefix}-${year}-${String(seq).padStart(4,'0')}`};
+}
+
+async function newCertificate(crToConvert = null){
+  if(!customers.filter(c=>c.active).length)return toast('Primero crea al menos un cliente.');
+  if(!drivers.filter(d=>d.active).length)return toast('Primero crea al menos un domiciliario.');
+  let numCR,numDF;
+  try{
+    numCR=await nextCertNumber('recoleccion');
+    numDF=await nextCertNumber('disposicion_final');
+  }catch(e){return toast('Error al obtener número: '+(e.message||''))}
+
+  const activeCust=customers.filter(c=>c.active);
+  const activeDrv=drivers.filter(d=>d.active);
+
+  const defaultCustId = crToConvert ? crToConvert.customer_id : activeCust[0].id;
+  const defaultCustName = customers.find(c=>c.id===defaultCustId)?.name || activeCust[0].name;
+  const defaultDrvId = crToConvert ? crToConvert.driver_id : activeDrv[0].id;
+  const defaultDrvName = drivers.find(d=>d.id===defaultDrvId)?.full_name || activeDrv[0].full_name;
+
+  const body=`
+    <form id="certForm" class="form-grid" novalidate>
+      <div class="section-label">Tipo de certificado</div>
+      <div class="field full" style="flex-direction:row;gap:18px;align-items:center">
+        <label class="checkline"><input type="radio" name="cert_type" value="recoleccion" ${crToConvert ? '' : 'checked'}> Recolección</label>
+        <label class="checkline"><input type="radio" name="cert_type" value="disposicion_final" ${crToConvert ? 'checked' : ''}> Disposición final</label>
+      </div>
+
+      <div class="section-label">Número asignado</div>
+      <div class="field full"><input id="certNumber" readonly value="${crToConvert ? numDF.number : numCR.number}" style="background:#f4f6f0;font-weight:800"></div>
+
+      <div class="section-label">Cliente / restaurante</div>
+      <div class="field full">
+        <label>Cliente *</label>
+        ${fakeSelectButton('certCustomer', defaultCustName)}
+        <input type="hidden" id="certCustomer" value="${defaultCustId}">
+      </div>
+      
+      <div class="field full"><label>Sucursal *</label><input id="certBranch" maxlength="120" placeholder="Ej. Sede Centro, C.C. Premium" required value="${crToConvert ? esc(crToConvert.branch||'') : ''}"></div>
+
+      <div id="crFields" class="${crToConvert ? 'hidden' : ''}">
+        <div class="section-label">Datos de la recolección</div>
+        <div class="field"><label>Fecha *</label><input id="crDate" type="date" value="${todayISO()}"></div>
+        <div class="field"><label>Hora *</label><input id="crTime" type="time" value="${nowTime()}"></div>
+        <div class="field full"><label>Nombre de quien entrega *</label><input id="crWho" maxlength="120"></div>
+        <div class="field"><label>Kilos *</label><input id="crKilos" type="number" min="0" step="any"></div>
+        <div class="field"><label>Precio por kilo</label><input id="crPrice" type="number" min="0" step="any" value="0"></div>
+        <label class="checkline field full"><input type="checkbox" id="crDonation"> Es donación (no se paga nada)</label>
+        <div class="total-line field full"><span>Total a pagar</span><span id="crTotal">$0</span></div>
+      </div>
+
+      <div id="dfFields" class="${crToConvert ? '' : 'hidden'}">
+        <div class="section-label">Datos de la disposición final</div>
+        <div class="field"><label>Fecha de emisión *</label><input id="dfDate" type="date" value="${crToConvert ? crToConvert.certificate_date : todayISO()}"></div>
+        <div class="field"><label>Hora *</label><input id="dfTime" type="time" value="${crToConvert ? crToConvert.certificate_time : nowTime()}"></div>
+        <div class="field"><label>Cantidad bidones *</label><input id="dfBidones" type="number" min="0" step="any" value=""></div>
+        <div class="field"><label>Kilos de aceite *</label><input id="dfKilos" type="number" min="0" step="any" value="${crToConvert ? crToConvert.kilos : ''}"></div>
+        <div class="field"><label>Precio por kilo</label><input id="dfPrice" type="number" min="0" step="any" value="${crToConvert ? (crToConvert.price_per_kilo || 0) : '0'}"></div>
+        <label class="checkline field full"><input type="checkbox" id="dfDonation" ${crToConvert && crToConvert.is_donation ? 'checked' : ''}> Es donación (no se paga nada)</label>
+        <div class="total-line field full"><span>Total a pagar</span><span id="dfTotal">$0</span></div>
+      </div>
+
+      <div class="section-label">Recolector</div>
+      <div class="field full">
+        <label>Domiciliario *</label>
+        ${fakeSelectButton('certDriver', defaultDrvName)}
+        <input type="hidden" id="certDriver" value="${defaultDrvId}">
+      </div>
+      <div class="field full"><label>Vehículo / Placa *</label><input id="certPlate" maxlength="60" placeholder="Ej. Moto ABC12D" value="${crToConvert ? esc(crToConvert.vehicle||'') : ''}"></div>
+
+      <div class="section-label">Firmas</div>
+      <div class="field full">
+        <label style="margin-bottom:6px">Firma del responsable de la entrega (dibuja con el dedo) *</label>
+        <div class="sig-wrap" id="sigWrapCliente">
+          <canvas class="sig-canvas" id="sigCanvasCliente"></canvas>
+          <div class="sig-ph" id="sigPhCliente">Aquí firma el dueño del restaurante con el dedo</div>
+        </div>
+        <div class="sig-controls"><button class="btn btn-secondary btn-small" type="button" id="sigClearCliente">Limpiar firma</button></div>
+      </div>
+      <div class="field full">
+        <label style="margin-bottom:6px">Firma del recolector (viene automáticamente del domiciliario)</label>
+        <div class="sig-preview" id="sigPreviewRecolector"></div>
+      </div>
+    </form>`;
+
+  openModal('Nuevo certificado',body,[
+    {label:'Cancelar',kind:'btn-secondary',action:closeModal},
+    {label:'Generar certificado',kind:'btn-primary',action:()=>saveCertificate({numCR,numDF})}
+  ],'Elige el tipo, llena los datos y firma.',true);
+
+  setTimeout(()=>{
+    const pad=createSignaturePad($('sigCanvasCliente'),$('sigPhCliente'), crToConvert ? crToConvert.customer_signature : null);
+    window.__certPadCliente=pad;
+    $('sigClearCliente').addEventListener('click',()=>pad.clear());
+
+    document.querySelector('[data-select="certCustomer"]').addEventListener('click',()=>{
+      openSelector('Cliente',activeCust.map(c=>({value:c.id,label:c.name})),(id,opt)=>{
+        $('certCustomer').value=id;
+        document.querySelector('[data-select="certCustomer"] .fake-select-label').textContent=opt.label;
+      });
+    });
+
+    document.querySelector('[data-select="certDriver"]').addEventListener('click',()=>{
+      openSelector('Domiciliario',activeDrv.map(d=>({value:d.id,label:d.full_name})),(id,opt)=>{
+        $('certDriver').value=id;
+        document.querySelector('[data-select="certDriver"] .fake-select-label').textContent=opt.label;
+        updateRecolectorSignaturePreview(id);
+      });
+    });
+
+    function recalcCR(){
+      const k=Number($('crKilos')?.value||0);
+      const p=Number($('crPrice')?.value||0);
+      const don=$('crDonation')?.checked;
+      const total=don?0:(k*p);
+      $('crTotal').textContent='$'+total.toLocaleString('es-CO',{maximumFractionDigits:0});
+    }
+    $('crKilos')?.addEventListener('input',recalcCR);
+    $('crPrice')?.addEventListener('input',recalcCR);
+    $('crDonation')?.addEventListener('change',()=>{if($('crDonation').checked)$('crPrice').value=0;recalcCR()});
+
+    function recalcDF(){
+      const k=Number($('dfKilos')?.value||0);
+      const p=Number($('dfPrice')?.value||0);
+      const don=$('dfDonation')?.checked;
+      const total=don?0:(k*p);
+      $('dfTotal').textContent='$'+total.toLocaleString('es-CO',{maximumFractionDigits:0});
+    }
+    $('dfKilos')?.addEventListener('input',recalcDF);
+    $('dfPrice')?.addEventListener('input',recalcDF);
+    $('dfDonation')?.addEventListener('change',()=>{if($('dfDonation').checked)$('dfPrice').value=0;recalcDF()});
+
+    document.querySelectorAll('input[name="cert_type"]').forEach(r=>{
+      r.addEventListener('change',()=>{
+        const isCR=document.querySelector('input[name="cert_type"]:checked').value==='recoleccion';
+        $('crFields').classList.toggle('hidden',!isCR);
+        $('dfFields').classList.toggle('hidden',isCR);
+        $('certNumber').value=isCR?numCR.number:numDF.number;
+      });
+    });
+
+    recalcCR();
+    recalcDF();
+    updateRecolectorSignaturePreview(defaultDrvId);
+  },100);
+}
+
+function updateRecolectorSignaturePreview(driverId){
+  const el=$('sigPreviewRecolector');
+  if(!el)return;
+  const drv=drivers.find(d=>d.id===driverId);
+  if(drv&&drv.signature){
+    el.innerHTML=`<img src="${drv.signature}" alt="Firma del recolector">`;
+  }else{
+    el.innerHTML='<div class="empty">Este domiciliario no tiene firma registrada.<br>Edítalo en la pestaña "Domiciliarios" para agregarla.</div>';
+  }
+}
+
+async function saveCertificate(nums){
+  if(busy)return;
+  const type=document.querySelector('input[name="cert_type"]:checked').value;
+  const isCR=type==='recoleccion';
+  const custId=$('certCustomer').value;
+  const drvId=$('certDriver').value;
+  const placa=$('certPlate').value.trim();
+  const branch=$('certBranch').value.trim();
+  
+  if(!custId)return toast('Selecciona un cliente.');
+  if(!drvId)return toast('Selecciona un domiciliario.');
+  if(!placa)return toast('Escribe la placa o vehículo.');
+  if(!branch) return toast('Escribe la sucursal.');
+  
+  const pad=window.__certPadCliente;
+  if(!pad||pad.isEmpty())return toast('Falta la firma del responsable de la entrega.');
+  const drv=drivers.find(d=>d.id===drvId);
+
+  if(isCR){
+    const date=$('crDate').value;
+    const time=$('crTime').value;
+    const who=$('crWho').value.trim();
+    const kilos=Number($('crKilos').value);
+    const price=Number($('crPrice').value)||0;
+    const don=$('crDonation').checked;
+    if(!date)return toast('Selecciona la fecha.');
+    if(!who)return toast('Escribe quién entrega.');
+    if(!Number.isFinite(kilos)||kilos<=0)return toast('Los kilos deben ser mayores que cero.');
+    const total=don?0:(kilos*price);
+    const payload={
+      certificate_type:'recoleccion',
+      certificate_number:nums.numCR.number,
+      year:nums.numCR.year,sequence:nums.numCR.sequence,
+      customer_id:custId,driver_id:drvId,
+      certificate_date:date,certificate_time:time,
+      kilos:kilos,price_per_kilo:don?0:price,total:total,is_donation:don,
+      vehicle:placa, notes:who,created_by:user.id, branch:branch,
+      customer_signature:pad.dataURL(),
+      driver_signature:drv?.signature||null
+    };
+    try{
+      setBusy(true);
+      const r=await sb.from('certificates').insert(payload).select().single();
+      if(r.error)throw r.error;
+      closeModal();toast('Certificado guardado.');await loadAll();openPreview(r.data);
+    }catch(e){toast('No se pudo guardar: '+(e.message||'Error desconocido'))}
+    finally{setBusy(false)}
+  }else{
+    const date=$('dfDate').value;
+    const time=$('dfTime').value;
+    const bidones=Number($('dfBidones').value);
+    const kilos=Number($('dfKilos').value);
+    const price=Number($('dfPrice').value)||0;
+    const don=$('dfDonation').checked;
+    if(!date)return toast('Selecciona la fecha.');
+    if(!Number.isFinite(bidones)||bidones<0)return toast('Escribe la cantidad de bidones.');
+    if(!Number.isFinite(kilos)||kilos<=0)return toast('Los kilos deben ser mayores que cero.');
+    const total=don?0:(kilos*price);
+    const payload={
+      certificate_type:'disposicion_final',
+      certificate_number:nums.numDF.number,
+      year:nums.numDF.year,sequence:nums.numDF.sequence,
+      customer_id:custId,driver_id:drvId,
+      certificate_date:date,certificate_time:time,
+      kilos:kilos,bidones:bidones,vehicle:placa,branch:branch,
+      price_per_kilo:don?0:price,total:total,is_donation:don,
+      customer_signature:pad.dataURL(),
+      driver_signature:drv?.signature||null,
+      created_by:user.id
+    };
+    try{
+      setBusy(true);
+      const r=await sb.from('certificates').insert(payload).select().single();
+      if(r.error)throw r.error;
+      closeModal();toast('Certificado guardado.');await loadAll();
+      openPreview(r.data);
+    }catch(e){toast('No se pudo guardar: '+(e.message||'Error desconocido'))}
+    finally{setBusy(false)}
+  }
+}
+
+if(!configured||!window.supabase){
+  $('configMsg').classList.remove('hidden');
+  $('configMsg').textContent=window.__RUTAACEITE_CONFIG_LOAD_ERROR?'No se pudo cargar config.js.':'Falta configurar Supabase en config.js.';
+  $('loginBtn').disabled=true;
+}else{
+  sb=window.supabase.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_ANON_KEY);
+  sb.auth.getSession().then(async({data,error})=>{
+    if(error)throw error;
+    if(data.session)await startApp();
+  }).catch(e=>{$('loginError').textContent='Error de sesión: '+e.message});
+  sb.auth.onAuthStateChange((event,session)=>{
+    if(session&&(!user||user.id!==session.user.id))setTimeout(()=>startApp(),0);
+    else if(!session){user=null;profile=null;$('appView').classList.add('hidden');$('topbar').classList.add('hidden');$('authView').classList.remove('hidden')}
+  });
+}
+})();
+/* === FIN CERTIFICADOS === */
+</script>
+</body>
+</html>
