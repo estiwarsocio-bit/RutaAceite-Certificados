@@ -30,6 +30,16 @@
 }
 .cert-a4 .logo-top{ text-align:center; margin-bottom:12px; }
 .cert-a4 .logo-top img{ width:auto; height:45mm; max-width:100%; object-fit:contain; display:inline-block;}
+.cert-a4 .estampilla{ 
+  position:absolute; 
+  top:12mm; 
+  right:12mm; 
+  width:35mm; 
+  height:auto; 
+  opacity:0.85; 
+  transform:rotate(-12deg); 
+  z-index:10; 
+}
 .cert-a4 .title{ text-align:center; font-weight:bold; font-size:12pt; line-height:1.3; margin:0 0 4px 0; text-transform:uppercase; }
 .cert-a4 .nit{ text-align:center; font-weight:bold; font-size:11pt; margin:0 0 10px 0; }
 .cert-a4 .sub{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; text-transform:uppercase; }
@@ -222,6 +232,10 @@ $('selOverlay').addEventListener('click',e=>{if(e.target===$('selOverlay'))close
 
 function certLogoHTML(){
   return `<img src="logo.png" alt="Oilsinfín">`;
+}
+
+function certEstampillaHTML(){
+  return `<img src="estampilla.png" class="estampilla" alt="Sello Ambiental">`;
 }
 
 /* ==== AUTH ==== */
@@ -500,9 +514,11 @@ function getCertHTML(c){
   const isCR=c.certificate_type==='recoleccion';
   
   const logo=`<div class="logo-top">${certLogoHTML()}</div>`;
+  const estampilla = certEstampillaHTML();
 
   if(isCR){
     return `<div class="cert-a4" id="certPreview">
+      ${estampilla}
       ${logo}
       <div class="title">RECOLECCIÓN DE ACEITE DE COCINA USADO</div>
       <div class="nit">NIT: 42988401</div>
@@ -560,6 +576,7 @@ function getCertHTML(c){
     </div>`;
   } else {
     return `<div class="cert-a4" id="certPreview">
+      ${estampilla}
       ${logo}
       <div class="title">CERTIFICADO DE DISPOSICIÓN FINAL Y APROVECHAMIENTO DE ACU.<br>ACEITE DE COCINA USADO</div>
       <div class="nit">NIT: 42988401</div>
@@ -806,7 +823,10 @@ function renderCustomers(){
       </div>
       <div class="row-right">
         ${c.active?'<span class="pill pill-active">Activo</span>':'<span class="pill pill-inactive">Inactivo</span>'}
-        <button class="btn btn-secondary btn-small" data-edit="${esc(c.id)}" type="button">Editar</button>
+        <div class="row-actions">
+          <button class="btn btn-secondary btn-small" data-edit="${esc(c.id)}" type="button">Editar</button>
+          <button class="btn btn-danger btn-small" data-del="${esc(c.id)}" type="button">Borrar</button>
+        </div>
       </div>
     </div>`).join('');
 
@@ -815,6 +835,36 @@ function renderCustomers(){
   $('view').querySelectorAll('[data-edit]').forEach(b=>{
     b.addEventListener('click',()=>{const c=customers.find(x=>x.id===b.dataset.edit);if(c)customerForm(c)});
   });
+
+  $('view').querySelectorAll('[data-del]').forEach(b=>{
+    b.addEventListener('click',()=>{const c=customers.find(x=>x.id===b.dataset.del);if(c)deleteCustomer(c)});
+  });
+}
+
+async function deleteCustomer(c){
+  openModal('Eliminar cliente',
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 12px">¿Seguro que quieres eliminar al cliente <strong>${esc(c.name)}</strong>? Esta acción no se puede deshacer.</p>`,
+    [
+      {label:'Cancelar',kind:'btn-secondary',action:closeModal},
+      {label:'Sí, eliminar',kind:'btn-danger',action:async()=>{
+        try{
+          setBusy(true);
+          const {error}=await sb.from('cert_customers').delete().eq('id',c.id);
+          if(error)throw error;
+          closeModal();toast('Cliente eliminado.');await loadAll();
+        }catch(e){
+          closeModal();
+          if(e.code==='23503'){ // Código de error de Foreign Key
+            toast('No se puede borrar: este cliente ya tiene certificados asociados. Edítalo y desactívalo.');
+          }else{
+            toast('No se pudo eliminar: '+e.message);
+          }
+        }
+        finally{setBusy(false)}
+      }}
+    ],
+    c.name
+  );
 }
 
 function customerForm(c){
