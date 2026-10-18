@@ -40,7 +40,10 @@
   z-index:10; 
 }
 .cert-a4 .title{ text-align:center; font-weight:bold; font-size:12pt; line-height:1.3; margin:0 0 4px 0; text-transform:uppercase; }
-.cert-a4 .nit{ text-align:center; font-weight:bold; font-size:11pt; margin:0 0 10px 0; }
+.cert-a4 .nit{ text-align:center; font-weight:bold; font-size:11pt; margin:0 0 2px 0; }
+.cert-a4 .legal-rep-title{ text-align:center; font-size:9pt; color:#333; margin:2px 0 0 0; text-transform:uppercase; }
+.cert-a4 .legal-rep{ text-align:center; font-weight:bold; font-size:11pt; margin:0 0 6px 0; }
+.cert-a4 .company-info{ text-align:center; font-size:9pt; line-height:1.25; margin:0 0 12px 0; }
 .cert-a4 .sub{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; text-transform:uppercase; }
 .cert-a4 .num-bar{ text-align:center; font-weight:bold; font-size:10.5pt; margin:0 0 10px 0; }
 .cert-a4 table{ width:100%; border-collapse:collapse; margin-bottom:10px; font-size:10pt; }
@@ -55,8 +58,45 @@
 .cert-a4 .firmas .line{ width:100%; border-top:1px solid #000; margin-top:2px; margin-bottom:4px; }
 .cert-a4 .firmas .lbl{ font-weight:bold; text-transform:uppercase; font-size:9.5pt; }
 .cert-a4 .firmas .sub{ font-size:9pt; margin-top:2px; }
-.cert-a4 .adv{ background:#fafafa; padding:10px; border:1px solid #ddd; margin-bottom:10px; }
-.cert-a4 .adv p{ margin:0 0 4px 0; font-size:9.5pt; }
+
+/* DISEÑO DE ADVERTENCIAS */
+.cert-a4 .adv{ 
+  background:#fbfcfa; 
+  padding:12px 15px; 
+  border:1px solid #dce4d9; 
+  border-left:4px solid #173b2c; 
+  margin-bottom:15px; 
+  border-radius:4px;
+}
+.cert-a4 .adv-title{ 
+  text-align:center; 
+  font-weight:bold; 
+  text-transform:uppercase; 
+  font-size:10pt; 
+  margin-bottom:8px; 
+  color:#173b2c; 
+  border-bottom:1px solid #dce4d9; 
+  padding-bottom:4px;
+}
+.cert-a4 .adv-list{ 
+  margin:0; 
+  padding-left:20px; 
+  text-align:left; 
+}
+.cert-a4 .adv-list li{ 
+  font-size:9.5pt; 
+  margin-bottom:5px; 
+  line-height:1.35; 
+  text-align:justify; 
+}
+.cert-a4 .adv-footer{ 
+  text-align:center; 
+  font-weight:bold; 
+  font-size:9.5pt; 
+  margin-top:10px; 
+  padding-top:8px; 
+  border-top:1px dashed #ccc;
+}
 
 /* ==== VISTA PREVIA CON ZOOM (PANZOOM) ==== */
 .preview-overlay{position:fixed;inset:0;background:#1a1a1a;z-index:180;display:flex;flex-direction:column}
@@ -512,15 +552,26 @@ function getCertHTML(c){
   const drv=drivers.find(x=>x.id===c.driver_id)||{};
   const isCR=c.certificate_type==='recoleccion';
   
-  const logo=`<div class="logo-top">${certLogoHTML()}</div>`;
   const estampilla = certEstampillaHTML();
+  
+  const header = `
+    <div class="logo-top">${certLogoHTML()}</div>
+    <div class="title">${isCR ? 'RECOLECCIÓN DE ACEITE DE COCINA USADO' : 'CERTIFICADO DE DISPOSICIÓN FINAL Y APROVECHAMIENTO DE ACU.<br>ACEITE DE COCINA USADO'}</div>
+    <div class="nit">NIT: 42988401</div>
+    <div class="legal-rep-title">Representante Legal</div>
+    <div class="legal-rep">Luz Gladys Zapata Ramirez</div>
+    <div class="company-info">
+      Calle 36 # 66 B - 70<br>
+      San Gabriel - Itagüí<br>
+      319 549 9041<br>
+      recoleccion.oilsinfin@gmail.com
+    </div>
+  `;
 
   if(isCR){
     return `<div class="cert-a4" id="certPreview">
       ${estampilla}
-      ${logo}
-      <div class="title">RECOLECCIÓN DE ACEITE DE COCINA USADO</div>
-      <div class="nit">NIT: 42988401</div>
+      ${header}
       <div class="sub">INSCRITOS ANTE LA AUTORIDAD AMBIENTAL</div>
       <div class="num-bar">N° ${esc(c.certificate_number)}</div>
       
@@ -550,12 +601,14 @@ function getCertHTML(c){
       </table>
 
       <div class="adv">
-        <p><strong>Advertencias:</strong></p>
-        <p>✱ Residuos NO peligrosos, destinado exclusivamente para reciclaje (Biodiesel, Jabón).</p>
-        <p>✱ Recolección y transporte de aceite de cocina usado.</p>
-        <p>✱ Los kg recolectados por Oilsinfín serán transportados para empresas que transforman para generar biodiesel.</p>
-        <p>✱ En caso de derrame, contener con material absorbente no verter en el alcantarillado.</p>
-        <p style="text-align:center;margin-top:10px;font-weight:bold">Implementación bajo la resolución Nacional 316 de marzo de 2018</p>
+        <div class="adv-title">Advertencias</div>
+        <ul class="adv-list">
+          <li>Residuos NO peligrosos, destinado exclusivamente para reciclaje (Biodiesel, Jabón).</li>
+          <li>Recolección y transporte de aceite de cocina usado.</li>
+          <li>Los kg recolectados por Oilsinfín serán transportados para empresas que transforman para generar biodiesel.</li>
+          <li>En caso de derrame, contener con material absorbente no verter en el alcantarillado.</li>
+        </ul>
+        <div class="adv-footer">Implementación bajo la resolución Nacional 316 de marzo de 2018</div>
       </div>
 
       <div class="firmas">
@@ -576,11 +629,8 @@ function getCertHTML(c){
   } else {
     return `<div class="cert-a4" id="certPreview">
       ${estampilla}
-      ${logo}
-      <div class="title">CERTIFICADO DE DISPOSICIÓN FINAL Y APROVECHAMIENTO DE ACU.<br>ACEITE DE COCINA USADO</div>
-      <div class="nit">NIT: 42988401</div>
-      
-      <div class="sub" style="text-align:center; margin-bottom:15px; font-size:10pt; text-transform:none;">OILSINFÍN CERTIFICA QUE LA SIGUIENTE EMPRESA GENERADORA REALIZÓ LA ENTREGA Y DISPOSICIÓN FINAL DE ACEITE DE COCINA USADO (ACU), DANDO CUMPLIMIENTO A LA NORMATIVIDAD AMBIENTAL VIGENTE:</div>
+      ${header}
+      <div class="sub" style="text-align:center; margin-bottom:15px; font-size:10pt; text-transform:none;">OILSINFÍN CERTIFICA QUE LA SIGUIENTE ENTIDAD GENERADORA REALIZÓ LA ENTREGA Y DISPOSICIÓN FINAL DE ACEITE DE COCINA USADO (ACU), DANDO CUMPLIMIENTO A LA NORMATIVIDAD AMBIENTAL VIGENTE:</div>
       
       <table>
         <tr><td class="lbl">NOMBRE / RAZÓN SOCIAL</td><td>${esc(cust.name||'')}</td></tr>
@@ -742,7 +792,6 @@ async function shareCertificate(c) {
   const isCR = c.certificate_type === 'recoleccion';
   const msg = `Hola, adjunto encontrarás tu certificado de ${isCR ? 'recolección' : 'disposición final'} N° ${c.certificate_number}. ¡Gracias por confiar en Oilsinfín!`;
   
-  // Copiamos el mensaje al portapapeles para que WhatsApp no lo borre
   try {
     await navigator.clipboard.writeText(msg);
     toast('Mensaje copiado. Pégalo en el chat de WhatsApp.');
@@ -853,7 +902,7 @@ async function deleteCustomer(c){
           closeModal();toast('Cliente eliminado.');await loadAll();
         }catch(e){
           closeModal();
-          if(e.code==='23503'){ // Código de error de Foreign Key
+          if(e.code==='23503'){
             toast('No se puede borrar: este cliente ya tiene certificados asociados. Edítalo y desactívalo.');
           }else{
             toast('No se pudo eliminar: '+e.message);
@@ -1108,32 +1157,38 @@ async function newCertificate(crToConvert = null){
         ${fakeSelectButton('certDriver', defaultDrvName)}
         <input type="hidden" id="certDriver" value="${defaultDrvId}">
       </div>
-      <div class="field full"><label>Vehículo / Placa *</label><input id="certPlate" maxlength="60" placeholder="Ej. Moto ABC12D" value="${crToConvert ? esc(crToConvert.vehicle||'') : ''}"></div>
+      <div class="field full"><label>Vehículo / Placa *</label><input id="certPlate" maxlength="60" placeholder="Ej. Moto ABC12D" value="${crToConvert ? esc(crToConvert.vehicle||'') : 'ZQW88E'}"></div>
 
-      <div class="section-label">Firmas</div>
-      <div class="field full">
-        <label style="margin-bottom:6px">Firma del responsable de la entrega (dibuja con el dedo) *</label>
-        <div class="sig-wrap" id="sigWrapCliente">
-          <canvas class="sig-canvas" id="sigCanvasCliente"></canvas>
-          <div class="sig-ph" id="sigPhCliente">Aquí firma el dueño del restaurante con el dedo</div>
+      <div id="firmasContainer" class="${crToConvert ? 'hidden' : ''}">
+        <div class="section-label">Firmas</div>
+        <div class="field full">
+          <label style="margin-bottom:6px">Firma del responsable de la entrega (dibuja con el dedo) *</label>
+          <div class="sig-wrap" id="sigWrapCliente">
+            <canvas class="sig-canvas" id="sigCanvasCliente"></canvas>
+            <div class="sig-ph" id="sigPhCliente">Aquí firma el dueño del restaurante con el dedo</div>
+          </div>
+          <div class="sig-controls"><button class="btn btn-secondary btn-small" type="button" id="sigClearCliente">Limpiar firma</button></div>
         </div>
-        <div class="sig-controls"><button class="btn btn-secondary btn-small" type="button" id="sigClearCliente">Limpiar firma</button></div>
+        <div class="field full">
+          <label style="margin-bottom:6px">Firma del recolector (viene automáticamente del domiciliario)</label>
+          <div class="sig-preview" id="sigPreviewRecolector"></div>
+        </div>
       </div>
-      <div class="field full">
-        <label style="margin-bottom:6px">Firma del recolector (viene automáticamente del domiciliario)</label>
-        <div class="sig-preview" id="sigPreviewRecolector"></div>
-      </div>
+
+      ${crToConvert ? `<div class="notice success" style="margin-top:20px"><strong>Nota:</strong> Al convertir este certificado, se usarán automáticamente las firmas del certificado de recolección original <strong>${esc(crToConvert.certificate_number)}</strong>.</div>` : ''}
     </form>`;
 
   openModal('Nuevo certificado',body,[
     {label:'Cancelar',kind:'btn-secondary',action:closeModal},
-    {label:'Generar certificado',kind:'btn-primary',action:()=>saveCertificate({numCR,numDF})}
+    {label:'Generar certificado',kind:'btn-primary',action:()=>saveCertificate({numCR,numDF}, crToConvert)}
   ],'Elige el tipo, llena los datos y firma.',true);
 
   setTimeout(()=>{
-    const pad=createSignaturePad($('sigCanvasCliente'),$('sigPhCliente'), crToConvert ? crToConvert.customer_signature : null);
-    window.__certPadCliente=pad;
-    $('sigClearCliente').addEventListener('click',()=>pad.clear());
+    if (!crToConvert) {
+      const pad=createSignaturePad($('sigCanvasCliente'),$('sigPhCliente'), null);
+      window.__certPadCliente=pad;
+      $('sigClearCliente').addEventListener('click',()=>pad.clear());
+    }
 
     document.querySelector('[data-select="certCustomer"]').addEventListener('click',()=>{
       openSelector('Cliente',activeCust.map(c=>({value:c.id,label:c.name})),(id,opt)=>{
@@ -1146,7 +1201,7 @@ async function newCertificate(crToConvert = null){
       openSelector('Domiciliario',activeDrv.map(d=>({value:d.id,label:d.full_name})),(id,opt)=>{
         $('certDriver').value=id;
         document.querySelector('[data-select="certDriver"] .fake-select-label').textContent=opt.label;
-        updateRecolectorSignaturePreview(id);
+        if(!crToConvert) updateRecolectorSignaturePreview(id);
       });
     });
 
@@ -1183,7 +1238,7 @@ async function newCertificate(crToConvert = null){
 
     recalcCR();
     recalcDF();
-    updateRecolectorSignaturePreview(defaultDrvId);
+    if(!crToConvert) updateRecolectorSignaturePreview(defaultDrvId);
   },100);
 }
 
@@ -1198,22 +1253,60 @@ function updateRecolectorSignaturePreview(driverId){
   }
 }
 
-async function saveCertificate(nums){
+async function saveCertificate(nums, crToConvert = null, skipBranchCheck = false){
   if(busy)return;
   const type=document.querySelector('input[name="cert_type"]:checked').value;
   const isCR=type==='recoleccion';
   const custId=$('certCustomer').value;
   const drvId=$('certDriver').value;
   const placa=$('certPlate').value.trim();
+  
   const branch=$('certBranch').value.trim();
   
   if(!custId)return toast('Selecciona un cliente.');
   if(!drvId)return toast('Selecciona un domiciliario.');
   if(!placa)return toast('Escribe la placa o vehículo.');
-  if(!branch) return toast('Escribe la sucursal.');
+
+  // ADVERTENCIA DE SUCURSAL VACÍA
+  if(!branch && !skipBranchCheck) {
+    let warn = document.getElementById('certWarning');
+    if (!warn) {
+      warn = document.createElement('div');
+      warn.id = 'certWarning';
+      warn.className = 'notice error';
+      warn.style.marginTop = '10px';
+      $('modalBody').appendChild(warn);
+    }
+    warn.innerHTML = `
+      <p style="margin:0 0 10px">No has ingresado la sucursal. ¿Deseas generar el certificado de todos modos?</p>
+      <div style="display:flex;gap:10px;">
+        <button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('certWarning').remove()">Corregir</button>
+        <button type="button" class="btn btn-danger btn-small" id="btnForceSave">Sí, continuar</button>
+      </div>
+    `;
+    document.getElementById('btnForceSave').onclick = () => {
+      warn.remove();
+      saveCertificate(nums, crToConvert, true);
+    };
+    return;
+  }
   
-  const pad=window.__certPadCliente;
-  if(!pad||pad.isEmpty())return toast('Falta la firma del responsable de la entrega.');
+  // TOMAR FIRMA DEL PAD O DE LA CONVERSIÓN ANTERIOR
+  let clientSig = null;
+  let driverSig = null;
+
+  if (crToConvert) {
+    clientSig = crToConvert.customer_signature;
+    const drvDb = drivers.find(d=>d.id===drvId);
+    driverSig = crToConvert.driver_signature || drvDb?.signature || null;
+  } else {
+    const pad = window.__certPadCliente;
+    if (!pad || pad.isEmpty()) return toast('Falta la firma del responsable de la entrega.');
+    clientSig = pad.dataURL();
+    const drvDb = drivers.find(d=>d.id===drvId);
+    driverSig = drvDb?.signature || null;
+  }
+  
   const drv=drivers.find(d=>d.id===drvId);
 
   if(isCR){
@@ -1235,8 +1328,8 @@ async function saveCertificate(nums){
       certificate_date:date,certificate_time:time,
       kilos:kilos,price_per_kilo:don?0:price,total:total,is_donation:don,
       vehicle:placa, notes:who,created_by:user.id, branch:branch,
-      customer_signature:pad.dataURL(),
-      driver_signature:drv?.signature||null
+      customer_signature:clientSig,
+      driver_signature:driverSig
     };
     try{
       setBusy(true);
@@ -1264,8 +1357,8 @@ async function saveCertificate(nums){
       certificate_date:date,certificate_time:time,
       kilos:kilos,bidones:bidones,vehicle:placa,branch:branch,
       price_per_kilo:don?0:price,total:total,is_donation:don,
-      customer_signature:pad.dataURL(),
-      driver_signature:drv?.signature||null,
+      customer_signature:clientSig,
+      driver_signature:driverSig,
       created_by:user.id
     };
     try{
